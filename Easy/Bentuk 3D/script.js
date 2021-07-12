@@ -253,15 +253,6 @@ const pyramidPosition = [
 
 
 const init = () => {
-  // get slider value
-  x_cube.nextElementSibling.value = x_cube.value;
-  y_cube.nextElementSibling.value = y_cube.value;
-  z_cube.nextElementSibling.value = z_cube.value;
-
-  x_pyramid.nextElementSibling.value = x_pyramid.value;
-  y_pyramid.nextElementSibling.value = y_pyramid.value;
-  z_pyramid.nextElementSibling.value = z_pyramid.value;
-
   initCube();
   renderCube();
   
