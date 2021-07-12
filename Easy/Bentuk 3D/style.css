@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+}
+
+.main {
+    /* margin: 0 auto; */
+    width: 100%;
+    height: 1vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+
+}
+
+canvas {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.slide-label {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* margin: 0 auto; */
+}
+
+label, input {
+    margin: 5px;
+}
+
+output {
+    margin-left: 10px;
+    width: 1em;
+}

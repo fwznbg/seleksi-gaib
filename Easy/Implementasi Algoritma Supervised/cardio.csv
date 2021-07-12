@@ -1,0 +1,1001 @@
+,age,gender,height,weight,ap_hi,ap_lo,cholesterol,gluc,smoke,alco,active,cardio
+0,18393,male,168,62,110,80,normal,normal,no,no,yes,0
+1,20228,female,156,85,140,90,well above normal,normal,no,no,yes,1
+2,18857,female,165,64,130,70,well above normal,normal,no,no,no,1
+3,17623,male,169,82,150,100,normal,normal,no,no,yes,1
+4,17474,female,156,56,100,60,normal,normal,no,no,no,0
+5,21914,female,151,67,120,80,above normal,above normal,no,no,no,0
+6,22113,female,157,93,130,80,well above normal,normal,no,no,yes,0
+7,22584,male,178,95,130,90,well above normal,well above normal,no,no,yes,1
+8,17668,female,158,71,110,70,normal,normal,no,no,yes,0
+9,19834,female,164,68,110,60,normal,normal,no,no,no,0
+10,22530,female,169,80,120,80,normal,normal,no,no,yes,0
+11,18815,male,173,60,120,80,normal,normal,no,no,yes,0
+12,14791,male,165,60,120,80,normal,normal,no,no,no,0
+13,19809,female,158,78,110,70,normal,normal,no,no,yes,0
+14,14532,male,181,95,130,90,normal,normal,yes,yes,yes,0
+15,16782,male,172,112,120,80,normal,normal,no,no,no,1
+16,21296,female,170,75,130,70,normal,normal,no,no,no,0
+17,16747,female,158,52,110,70,normal,well above normal,no,no,yes,0
+18,17482,female,154,68,100,70,normal,normal,no,no,no,0
+19,21755,male,162,56,120,70,normal,normal,yes,no,yes,0
+20,19778,male,163,83,120,80,normal,normal,no,no,yes,0
+21,21413,female,157,69,130,80,normal,normal,no,no,yes,0
+22,23046,female,158,90,145,85,above normal,above normal,no,no,yes,1
+23,23376,male,156,45,110,60,normal,normal,no,no,yes,0
+24,16608,female,170,68,150,90,well above normal,normal,no,no,yes,1
+25,14453,female,153,65,130,100,above normal,normal,no,no,yes,0
+26,19559,female,156,59,130,90,normal,normal,no,no,yes,0
+27,18085,female,159,78,120,80,normal,normal,no,no,yes,0
+28,14574,male,166,66,120,80,normal,normal,no,no,yes,0
+29,21057,male,169,74,130,70,normal,well above normal,no,no,no,0
+30,18291,female,155,105,120,80,well above normal,normal,no,no,yes,1
+31,23186,female,169,71,140,90,well above normal,normal,no,no,yes,1
+32,14605,female,159,60,110,70,normal,normal,no,no,yes,0
+33,20652,female,160,73,130,85,normal,normal,no,no,no,1
+34,21940,male,173,82,140,90,well above normal,normal,no,no,no,1
+35,20404,female,163,55,120,80,normal,normal,no,no,yes,0
+36,18328,male,175,95,120,80,normal,normal,no,no,yes,0
+37,17976,female,164,70,130,90,normal,normal,no,no,yes,0
+38,23388,male,162,72,130,80,normal,normal,yes,no,yes,1
+39,18126,female,165,70,140,90,normal,normal,no,no,yes,1
+40,19848,female,157,62,110,70,normal,normal,no,no,no,0
+41,18274,female,178,68,110,80,normal,normal,no,no,yes,1
+42,21475,male,171,69,140,90,normal,normal,no,no,yes,1
+43,20556,male,159,63,120,60,normal,normal,no,no,yes,1
+44,19764,female,154,50,170,80,well above normal,normal,no,no,yes,1
+45,17471,female,162,64,140,90,normal,normal,no,no,yes,1
+46,18207,female,162,107,150,90,above normal,normal,no,no,yes,1
+47,18535,male,168,69,120,80,normal,normal,no,no,no,0
+48,16864,male,175,70,120,80,above normal,normal,no,no,yes,0
+49,16045,female,170,69,120,70,normal,normal,no,no,yes,0
+50,18238,female,160,75,100,60,normal,normal,no,no,no,0
+51,18338,female,169,84,150,100,normal,normal,no,no,yes,1
+52,19575,male,166,85,150,100,normal,normal,no,no,yes,1
+53,14507,female,165,77,135,90,well above normal,well above normal,no,no,yes,1
+54,19679,female,152,79,130,90,normal,normal,no,no,yes,1
+55,21787,male,165,73,125,90,normal,normal,no,no,no,0
+56,17407,female,171,76,90,60,normal,above normal,no,no,yes,0
+57,22748,female,165,90,120,80,normal,normal,no,no,no,1
+58,15901,male,172,84,140,90,normal,normal,yes,no,yes,1
+59,20431,female,164,64,180,90,normal,normal,yes,no,yes,1
+60,19105,female,159,58,110,70,normal,normal,no,no,yes,0
+61,20960,male,165,75,180,90,well above normal,normal,no,no,yes,1
+62,20330,male,187,115,130,90,normal,normal,no,yes,yes,0
+63,22587,female,170,85,120,80,normal,normal,no,no,yes,0
+64,20649,male,169,71,120,80,normal,normal,no,no,yes,1
+65,21752,female,148,80,130,90,normal,normal,no,no,yes,1
+66,19148,male,170,69,130,80,normal,normal,no,no,yes,0
+67,22099,male,171,97,150,100,well above normal,normal,yes,no,yes,1
+68,19739,female,152,76,160,100,normal,above normal,no,no,yes,1
+69,20882,female,157,53,110,70,normal,normal,no,no,no,1
+70,23589,female,155,57,120,80,normal,normal,no,no,yes,1
+71,21874,male,179,95,150,90,normal,normal,no,no,yes,1
+72,23433,female,156,58,110,70,normal,normal,no,no,yes,0
+73,21934,female,157,77,140,90,normal,normal,no,no,yes,1
+74,16039,male,180,90,140,90,above normal,above normal,no,no,no,0
+75,20484,female,158,75,130,90,normal,normal,no,no,no,1
+76,20397,male,188,105,120,80,normal,normal,no,no,yes,1
+77,21865,female,160,68,140,90,normal,normal,no,no,yes,1
+78,18241,female,173,82,140,90,normal,normal,no,no,yes,1
+79,20370,male,164,74,140,85,normal,normal,no,no,no,1
+80,16591,female,159,49,120,70,normal,normal,no,no,yes,0
+81,19029,female,155,64,120,70,normal,normal,no,no,yes,0
+82,19642,female,158,75,120,80,normal,normal,no,no,yes,1
+83,19570,female,152,110,160,90,normal,normal,no,no,yes,1
+84,22636,female,178,93,130,90,normal,normal,no,no,no,1
+85,18352,female,156,55,100,60,normal,normal,no,no,yes,0
+86,21909,female,156,75,150,90,above normal,above normal,no,no,yes,1
+87,19663,male,166,94,140,90,above normal,well above normal,no,no,yes,1
+88,23204,female,151,92,130,90,normal,normal,no,no,no,1
+89,19480,male,172,87,120,80,normal,normal,no,no,no,0
+90,23230,female,160,82,140,100,normal,normal,no,no,yes,0
+91,19557,female,164,103,140,90,well above normal,well above normal,no,no,no,1
+92,18752,male,173,76,150,90,normal,normal,no,no,yes,1
+93,22821,male,168,80,160,100,normal,normal,no,no,yes,0
+94,15946,male,185,88,133,89,above normal,well above normal,no,no,yes,0
+95,21076,female,158,53,110,70,normal,normal,no,no,yes,0
+96,19258,male,165,65,110,70,normal,normal,no,no,yes,0
+97,18410,female,165,99,150,110,normal,normal,no,no,no,1
+98,21860,male,170,100,120,80,normal,normal,no,no,no,1
+99,17363,female,167,71,120,80,above normal,normal,no,yes,yes,1
+100,14684,male,171,61,110,70,normal,normal,no,no,yes,0
+101,18718,female,167,80,190,90,above normal,normal,no,yes,no,0
+102,17015,female,168,77,100,70,normal,normal,no,no,yes,0
+103,18128,male,183,95,125,80,normal,well above normal,yes,no,yes,0
+104,21903,female,170,72,120,80,normal,normal,no,no,no,1
+105,20627,male,168,78,140,90,above normal,normal,yes,no,yes,1
+106,14448,male,162,60,120,80,above normal,normal,no,no,yes,1
+107,14499,male,164,48,110,70,normal,above normal,yes,yes,yes,1
+108,15440,male,174,54,130,80,above normal,above normal,no,no,yes,1
+109,16066,female,157,51,100,70,above normal,normal,no,no,yes,1
+110,23296,male,168,75,110,80,normal,normal,no,no,no,1
+111,21140,male,159,78,120,80,well above normal,well above normal,no,no,yes,1
+112,16633,female,158,78,110,70,normal,normal,no,no,yes,0
+113,18938,female,157,79,125,65,normal,above normal,no,no,yes,1
+114,22055,female,167,84,130,80,normal,normal,no,no,yes,0
+115,21900,male,160,57,170,110,normal,normal,no,no,yes,1
+116,19109,male,180,84,120,80,normal,normal,no,no,no,0
+117,19782,female,160,90,120,80,normal,normal,no,no,yes,1
+118,14321,male,173,75,110,70,normal,normal,no,no,yes,0
+119,18170,female,156,63,100,70,normal,normal,no,no,yes,0
+120,21605,female,156,71,120,80,above normal,above normal,no,no,yes,1
+121,19507,male,174,77,120,80,normal,normal,yes,no,yes,1
+122,18247,female,170,70,140,90,normal,normal,no,no,yes,1
+123,14493,female,167,66,110,70,normal,normal,no,no,yes,0
+124,21758,female,165,65,140,90,normal,normal,no,no,yes,1
+125,19656,male,153,47,130,80,well above normal,normal,yes,no,yes,0
+126,21145,female,170,66,120,80,normal,normal,no,no,no,0
+127,21865,female,152,67,160,90,normal,normal,no,no,no,1
+128,22111,female,176,74,120,80,normal,normal,no,no,yes,1
+129,18276,female,159,84,160,100,normal,normal,no,no,yes,1
+130,21987,male,169,59,130,80,normal,normal,no,no,no,1
+131,20442,male,170,65,120,80,normal,normal,no,no,yes,0
+132,22585,male,164,84,150,89,above normal,above normal,no,no,yes,0
+133,21259,male,160,57,110,80,above normal,normal,no,no,yes,0
+134,21473,male,174,90,140,80,normal,normal,yes,yes,no,1
+135,20393,female,161,67,120,80,normal,normal,no,no,yes,1
+136,17213,female,153,50,120,80,normal,normal,no,no,yes,0
+137,22536,male,184,82,130,80,normal,normal,no,no,yes,0
+138,16889,female,156,60,120,80,normal,normal,no,no,yes,0
+139,18283,female,170,60,120,80,normal,normal,no,no,yes,0
+140,19529,female,158,55,120,90,normal,normal,no,no,yes,0
+141,22019,female,165,55,140,80,normal,normal,no,no,yes,1
+142,23376,male,169,73,140,90,normal,normal,no,no,yes,1
+143,21857,male,169,58,110,80,normal,normal,no,no,yes,1
+144,16728,male,178,91,120,80,normal,normal,no,no,no,1
+145,18461,female,152,57,120,80,normal,normal,no,no,yes,0
+146,18068,female,160,90,130,90,normal,normal,no,yes,yes,0
+147,23470,male,166,69,130,90,above normal,normal,no,no,yes,1
+148,20395,female,164,70,120,70,normal,normal,no,no,yes,0
+149,17473,female,162,71,110,80,normal,normal,no,no,no,0
+150,16017,male,167,82,120,80,well above normal,well above normal,no,no,no,1
+151,21695,female,160,67,120,60,normal,normal,no,no,yes,1
+152,20533,male,169,79,120,80,above normal,above normal,yes,no,yes,0
+153,20465,male,168,72,120,80,normal,normal,no,no,no,1
+154,18912,female,167,80,140,80,normal,normal,no,no,yes,1
+155,18860,female,168,62,140,90,normal,normal,no,no,yes,1
+156,22428,female,159,73,130,100,well above normal,normal,no,no,yes,1
+157,19792,male,169,87,130,80,above normal,normal,no,no,no,0
+158,16028,female,157,69,120,80,normal,normal,no,yes,yes,1
+159,17939,female,154,67,110,70,normal,normal,no,no,yes,1
+160,23117,male,180,104,120,85,above normal,above normal,no,no,yes,0
+161,15885,female,165,66,110,70,normal,normal,no,no,no,0
+162,18293,female,158,72,120,80,normal,normal,no,no,yes,0
+163,17539,female,153,73,120,80,above normal,normal,no,no,yes,0
+164,20533,male,171,70,110,70,normal,normal,yes,no,yes,0
+165,21135,female,148,53,120,80,normal,normal,no,no,yes,1
+166,19570,female,170,68,130,80,well above normal,well above normal,no,no,yes,1
+167,15268,female,160,60,120,80,normal,normal,no,no,no,0
+168,22650,female,165,70,170,100,normal,normal,no,no,no,1
+169,20603,female,170,70,140,90,normal,normal,no,no,yes,1
+170,22620,female,165,68,150,80,above normal,normal,no,no,no,1
+171,21191,female,153,78,140,90,above normal,normal,no,no,yes,1
+172,16771,female,169,64,120,80,well above normal,normal,no,no,yes,1
+173,21137,male,172,94,120,80,above normal,normal,no,no,yes,0
+174,19769,female,180,70,120,80,above normal,above normal,no,no,yes,1
+175,16748,female,158,58,110,80,normal,normal,no,no,yes,0
+176,16621,female,177,81,120,63,normal,normal,no,no,yes,0
+177,21848,male,170,69,120,80,normal,normal,yes,yes,yes,0
+178,18915,female,170,60,120,80,normal,normal,no,no,yes,0
+179,18859,male,171,98,110,90,normal,normal,no,no,yes,1
+180,18949,female,153,63,110,70,above normal,normal,no,no,yes,0
+181,21712,male,165,65,120,80,normal,normal,no,no,yes,1
+182,22671,male,174,74,130,80,well above normal,normal,yes,no,yes,1
+183,23312,female,148,50,120,80,above normal,normal,no,no,yes,0
+184,23225,female,155,74,150,90,above normal,normal,no,no,yes,1
+185,21305,male,157,51,120,80,normal,normal,yes,no,yes,0
+186,19631,male,169,55,120,80,normal,normal,yes,no,yes,0
+187,19081,male,175,53,140,80,normal,normal,yes,no,yes,1
+188,22527,female,165,67,90,60,normal,normal,no,no,yes,0
+189,14557,male,182,75,120,80,normal,normal,no,no,yes,0
+190,18987,male,169,68,110,80,normal,normal,yes,no,yes,0
+191,15326,female,172,55,110,80,normal,normal,no,no,yes,0
+192,21166,male,162,59,140,90,above normal,normal,yes,no,yes,1
+193,14638,male,185,94,120,80,normal,normal,no,no,yes,0
+194,21989,female,162,62,140,80,well above normal,normal,no,no,yes,1
+195,19635,male,174,88,120,80,above normal,above normal,no,no,no,0
+196,22675,female,176,108,140,90,normal,normal,no,no,no,0
+197,21796,male,171,71,120,80,normal,normal,no,no,yes,0
+198,15212,male,183,85,120,80,normal,normal,no,no,yes,0
+199,18825,female,170,67,110,70,normal,normal,no,no,no,0
+200,20578,female,165,70,120,80,normal,normal,no,no,yes,1
+201,19802,female,158,58,120,80,normal,normal,no,no,no,0
+202,14624,female,167,79,150,100,above normal,normal,no,no,yes,1
+203,23109,male,166,63,140,90,normal,normal,no,no,yes,1
+204,18901,female,157,55,120,80,normal,above normal,no,no,yes,1
+205,17325,female,168,65,120,80,normal,normal,no,no,yes,1
+206,17548,male,156,60,110,70,normal,normal,yes,no,yes,0
+207,21086,female,161,68,120,70,well above normal,well above normal,yes,no,yes,1
+208,15954,male,183,92,100,70,normal,normal,no,no,yes,0
+209,18169,male,172,62,80,70,normal,normal,no,no,yes,0
+210,21014,male,169,75,150,100,normal,normal,no,no,yes,1
+211,18347,female,159,57,125,70,normal,normal,no,no,no,1
+212,22570,female,162,105,140,90,well above normal,normal,no,no,no,1
+213,19085,female,154,64,110,65,normal,normal,no,no,yes,0
+214,16739,male,170,95,120,70,normal,normal,no,no,yes,0
+215,21381,male,173,73,120,80,normal,normal,no,no,yes,1
+216,18807,female,160,88,150,100,normal,normal,no,no,no,1
+217,23341,male,167,68,140,90,normal,normal,no,no,yes,1
+218,18839,female,158,70,120,80,normal,normal,no,no,yes,1
+219,21179,female,164,67,120,80,normal,normal,no,no,yes,1
+220,19675,female,164,57,120,80,above normal,normal,no,no,yes,0
+221,17591,female,157,70,160,100,well above normal,normal,no,no,no,1
+222,19829,female,158,83,130,80,normal,above normal,no,no,yes,1
+223,15296,female,165,70,160,90,normal,normal,no,no,yes,1
+224,21800,male,76,55,120,80,normal,normal,no,no,yes,0
+225,17471,female,156,65,120,80,normal,normal,no,no,yes,0
+226,15825,male,166,70,110,70,normal,normal,yes,no,yes,0
+227,14373,female,168,68,120,79,normal,normal,no,no,yes,1
+228,17489,male,183,98,160,1100,normal,above normal,yes,no,yes,1
+229,20259,male,169,65,130,80,normal,normal,no,no,no,0
+230,23376,male,175,75,180,100,well above normal,normal,yes,yes,yes,1
+231,19545,male,168,72,120,80,well above normal,normal,no,no,yes,1
+232,18444,male,173,75,130,80,above normal,normal,yes,yes,no,0
+233,20490,male,185,81,110,70,normal,normal,no,no,yes,1
+234,21377,female,149,60,120,80,normal,normal,no,no,no,0
+235,20421,male,170,68,150,100,normal,normal,no,no,yes,1
+236,23444,female,158,69,120,80,normal,normal,no,no,yes,0
+237,17326,male,180,90,130,80,normal,normal,yes,no,yes,1
+238,16799,female,153,60,120,70,normal,normal,no,no,no,0
+239,22573,female,170,65,120,80,normal,normal,no,no,yes,1
+240,21971,male,170,82,120,80,normal,normal,no,no,yes,0
+241,21932,male,157,60,160,1000,above normal,normal,no,no,no,1
+242,18825,male,179,79,140,80,normal,normal,no,no,yes,1
+243,16060,female,154,56,120,70,normal,normal,no,no,yes,0
+244,17460,male,162,66,150,100,well above normal,normal,yes,no,no,1
+245,18943,female,161,85,140,90,above normal,normal,no,no,yes,1
+246,14684,male,172,73,120,80,normal,normal,yes,no,no,0
+247,21681,female,160,63,120,70,normal,normal,no,no,yes,0
+248,21727,male,158,53,160,90,normal,normal,no,no,yes,0
+249,18220,female,142,61,120,80,normal,normal,no,no,yes,0
+250,17679,male,160,89,130,80,normal,normal,no,no,yes,1
+251,19089,female,159,79,120,80,normal,normal,no,no,yes,0
+252,21127,female,175,70,120,80,normal,normal,no,no,yes,0
+253,23250,female,156,93,120,80,well above normal,normal,no,no,yes,1
+254,14543,female,168,69,120,80,normal,normal,no,no,yes,0
+255,22141,female,172,87,150,100,well above normal,normal,no,no,yes,1
+256,21751,female,158,78,140,80,above normal,normal,no,no,yes,0
+257,21363,female,170,90,140,90,normal,normal,no,no,yes,1
+258,22764,female,161,72,120,80,normal,normal,no,no,yes,1
+259,18772,female,165,100,120,80,normal,normal,no,no,yes,0
+260,18217,female,150,83,140,800,normal,normal,no,no,yes,1
+261,21059,female,154,98,140,90,above normal,normal,no,no,yes,0
+262,21897,female,160,55,120,80,normal,normal,no,no,yes,1
+263,19788,female,165,80,130,90,normal,normal,no,no,yes,1
+264,21896,female,154,54,160,90,normal,normal,no,no,yes,1
+265,20225,female,150,67,120,80,well above normal,well above normal,no,no,no,1
+266,20285,female,153,49,110,60,normal,normal,no,no,yes,0
+267,17460,female,165,115,150,100,normal,normal,no,no,yes,1
+268,19715,female,160,89,140,90,above normal,above normal,no,no,no,0
+269,22031,male,170,69,130,90,normal,normal,no,no,yes,1
+270,16117,male,168,84,100,60,normal,normal,yes,no,yes,0
+271,16468,female,149,50,120,80,above normal,above normal,no,no,no,0
+272,22585,female,166,58,140,80,normal,normal,no,no,no,1
+273,16003,female,162,74,140,100,above normal,normal,no,no,yes,0
+274,19216,male,178,78,120,80,normal,normal,no,no,no,0
+275,19644,female,157,80,150,90,well above normal,normal,no,no,yes,1
+276,23372,female,169,68,120,80,normal,normal,no,no,no,1
+277,22068,female,169,70,100,70,normal,normal,no,no,no,1
+278,15229,female,150,55,120,70,normal,normal,no,no,no,0
+279,21711,male,159,85,110,70,normal,above normal,no,no,yes,1
+280,20383,female,152,72,160,90,well above normal,normal,no,no,yes,1
+281,20509,female,160,76,110,80,normal,normal,no,no,no,0
+282,18784,female,159,95,120,80,normal,normal,no,no,yes,1
+283,21833,male,176,82,140,90,well above normal,normal,no,no,yes,1
+284,21274,female,155,65,150,80,above normal,normal,no,no,yes,1
+285,20705,male,163,68,110,80,normal,normal,no,no,no,0
+286,22510,male,170,115,120,80,above normal,above normal,no,no,yes,0
+287,20311,female,159,101,135,90,above normal,normal,no,no,no,1
+288,21974,female,163,65,110,80,normal,normal,no,no,yes,1
+289,21257,female,149,56,140,90,normal,normal,no,no,yes,1
+290,18936,female,154,62,120,80,normal,normal,no,no,yes,1
+291,20310,female,159,79,140,90,above normal,above normal,no,no,yes,1
+292,21233,female,157,63,140,90,above normal,normal,no,no,yes,1
+293,21187,female,152,54,170,80,normal,normal,no,no,yes,1
+294,18067,female,158,56,120,80,normal,normal,no,no,yes,0
+295,16646,male,170,76,110,70,normal,normal,no,no,yes,0
+296,20948,male,169,76,170,110,normal,normal,no,no,no,1
+297,22415,male,173,70,130,70,above normal,normal,yes,yes,yes,0
+298,18189,female,160,70,150,90,normal,normal,no,no,yes,1
+299,23357,male,173,85,140,80,well above normal,normal,no,no,yes,1
+300,19074,male,167,72,130,80,normal,normal,yes,no,no,0
+301,21809,female,178,80,120,80,normal,normal,no,no,yes,1
+302,23335,male,160,52,120,80,normal,normal,no,no,yes,0
+303,18291,male,171,74,150,80,well above normal,well above normal,yes,no,yes,1
+304,17426,male,185,105,120,80,normal,normal,no,no,no,1
+305,23613,male,181,99,130,90,normal,normal,no,no,yes,1
+306,22577,female,157,100,120,80,normal,normal,no,no,yes,1
+307,17512,male,160,60,110,70,normal,normal,no,no,yes,0
+308,17976,female,166,78,120,80,normal,normal,no,no,yes,1
+309,19470,female,162,87,120,80,normal,normal,no,no,yes,0
+310,17622,female,166,105,110,70,normal,normal,no,no,yes,0
+311,16596,female,169,69,110,80,normal,normal,no,no,yes,0
+312,14683,female,161,75,110,70,normal,normal,no,no,yes,0
+313,21197,male,167,92,140,80,normal,normal,no,no,yes,1
+314,21245,female,165,65,120,79,normal,normal,no,no,no,1
+315,20593,female,156,50,120,70,normal,well above normal,no,no,yes,1
+316,19070,female,158,73,110,70,normal,above normal,no,no,yes,0
+317,21411,female,170,68,120,80,normal,normal,no,no,yes,0
+318,19766,male,170,101,170,90,normal,normal,no,no,yes,1
+319,19532,female,164,80,140,90,normal,normal,no,no,yes,1
+320,18341,female,159,51,100,70,normal,normal,no,no,yes,0
+321,14421,female,165,62,140,80,normal,normal,no,no,yes,1
+322,18391,female,170,65,120,80,normal,normal,no,no,yes,0
+323,18293,female,165,90,160,100,normal,normal,no,no,no,1
+324,16711,male,172,86,120,80,normal,normal,no,no,yes,0
+325,19767,female,167,74,135,90,normal,normal,no,no,yes,0
+326,19004,male,174,63,140,90,normal,normal,yes,no,yes,0
+327,22583,male,170,65.5,150,80,normal,normal,yes,no,yes,1
+328,20649,female,154,78,120,80,normal,normal,no,no,yes,0
+329,23407,female,176,63,160,1000,above normal,above normal,no,no,no,1
+330,16299,male,160,58,110,70,normal,normal,no,no,yes,0
+331,16069,male,160,85,120,80,normal,normal,no,yes,yes,0
+332,21168,male,160,68,170,90,normal,normal,no,no,no,1
+333,20595,female,160,60,150,90,normal,well above normal,no,no,yes,1
+334,15222,male,169,86,120,80,normal,normal,no,no,no,0
+335,20531,female,162,57,100,80,above normal,normal,no,no,yes,0
+336,21417,female,173,99,140,80,above normal,above normal,no,no,yes,1
+337,20597,female,160,70,130,100,well above normal,normal,no,no,yes,1
+338,21078,female,157,142,120,80,normal,normal,no,no,yes,1
+339,22007,female,159,97,120,80,normal,well above normal,no,no,yes,0
+340,14767,female,170,68,120,80,normal,normal,no,no,yes,0
+341,21234,male,182,91,160,90,well above normal,normal,no,no,yes,1
+342,17021,female,165,70,130,70,normal,normal,no,no,yes,0
+343,19780,female,172,104,120,80,normal,normal,no,no,yes,1
+344,15186,female,170,81,120,79,normal,normal,no,no,yes,0
+345,18704,female,154,81,140,1000,above normal,normal,no,no,yes,1
+346,18115,male,175,89,120,80,normal,normal,no,no,yes,0
+347,20398,male,173,86,150,89,above normal,normal,no,no,no,1
+348,21776,male,174,84,140,80,normal,normal,no,no,yes,0
+349,22742,female,154,75,125,70,normal,normal,no,no,yes,0
+350,16778,female,175,80,160,90,normal,normal,no,no,yes,1
+351,23392,female,153,69,140,80,well above normal,well above normal,no,no,yes,1
+352,15253,male,175,85,120,80,normal,normal,no,no,yes,1
+353,16021,female,156,60,90,60,normal,normal,no,no,yes,0
+354,20235,male,169,70,120,80,well above normal,well above normal,no,no,yes,1
+355,23094,female,158,73,180,100,well above normal,normal,no,no,yes,1
+356,22655,male,166,78,110,70,normal,normal,no,no,yes,0
+357,21862,female,163,69,100,70,normal,normal,no,no,yes,0
+358,20585,female,165,65,122,80,normal,well above normal,no,no,no,1
+359,18731,male,173,96,120,80,normal,normal,no,no,yes,1
+360,19803,female,144,44,130,80,normal,normal,no,no,yes,0
+361,23282,male,170,84,120,70,normal,normal,no,no,yes,0
+362,16209,male,168,72,120,70,normal,normal,no,no,yes,0
+363,23444,female,175,76,120,80,normal,normal,no,yes,yes,1
+364,18996,female,167,69,120,80,normal,normal,no,no,yes,0
+365,19047,male,169,87,130,80,normal,normal,no,no,yes,0
+366,18458,female,166,71,160,90,normal,normal,no,no,yes,1
+367,22641,female,160,83,120,80,well above normal,well above normal,no,no,yes,1
+368,14631,male,166,90,120,80,normal,normal,no,no,yes,0
+369,19574,female,160,58,140,80,normal,normal,no,no,yes,1
+370,19758,female,160,74,120,80,normal,normal,no,no,yes,0
+371,16664,male,173,93,130,80,normal,normal,yes,no,yes,0
+372,15215,male,172,71,160,120,well above normal,well above normal,yes,yes,no,1
+373,19834,female,158,68,120,80,normal,normal,no,no,no,0
+374,17740,female,158,74,120,80,above normal,above normal,no,no,no,0
+375,15383,male,170,69,120,80,normal,normal,no,no,no,1
+376,16845,male,160,60,150,90,normal,normal,no,no,no,1
+377,22705,female,158,84,120,80,above normal,above normal,no,no,yes,1
+378,16320,male,168,75,120,80,normal,normal,no,no,yes,0
+379,19038,female,163,67,140,80,normal,normal,no,no,no,1
+380,19549,female,152,60,120,80,normal,normal,no,no,yes,0
+381,21760,female,164,55,120,80,normal,normal,no,no,yes,1
+382,19590,female,148,61,140,90,well above normal,well above normal,no,no,yes,0
+383,19517,female,147,41,80,50,normal,normal,no,no,yes,0
+384,22531,male,164,81,150,90,above normal,above normal,no,no,yes,1
+385,15912,male,171,74,120,80,normal,normal,yes,yes,yes,0
+386,23529,female,167,78,120,80,normal,normal,no,no,yes,1
+387,21085,female,162,74,120,80,above normal,above normal,no,no,yes,0
+388,20943,male,158,52,90,60,normal,normal,yes,no,no,0
+389,16718,male,165,169,120,80,normal,normal,no,no,yes,0
+390,16772,female,170,116,130,70,normal,normal,no,no,yes,0
+391,18178,female,144,59,120,80,above normal,above normal,no,no,yes,1
+392,21151,male,175,65,140,80,normal,normal,no,no,no,1
+393,18282,female,163,108,150,100,well above normal,well above normal,no,no,yes,1
+394,16939,female,162,89,120,80,normal,normal,no,no,yes,0
+395,23661,male,160,78,140,90,normal,normal,no,no,yes,0
+396,22493,female,164,75,130,90,above normal,normal,no,no,yes,1
+397,21257,female,164,86,150,100,normal,normal,no,no,no,1
+398,14492,female,163,82,110,70,normal,normal,no,no,yes,0
+399,22148,female,156,68,120,80,well above normal,well above normal,no,no,yes,1
+400,18188,female,150,62,120,80,normal,normal,no,no,yes,0
+401,18397,female,175,75,120,80,normal,normal,no,no,yes,1
+402,15136,female,164,75,110,70,normal,normal,no,no,yes,0
+403,21203,female,156,88,140,80,normal,normal,no,no,yes,1
+404,23451,female,158,71,120,80,normal,normal,no,no,yes,1
+405,19122,female,157,94,120,80,above normal,normal,no,no,yes,0
+406,20004,female,155,69,140,90,above normal,normal,no,no,yes,0
+407,23262,male,162,70,130,70,normal,normal,yes,yes,yes,1
+408,18350,female,168,70,120,80,above normal,above normal,no,no,no,1
+409,18135,female,163,75,130,80,normal,normal,no,no,yes,1
+410,21742,female,163,70,120,70,well above normal,well above normal,no,no,no,1
+411,20295,female,164,50,100,60,normal,normal,yes,no,yes,0
+412,21788,female,153,77,110,70,normal,normal,no,no,yes,0
+413,22906,female,156,55,110,60,normal,normal,no,no,yes,0
+414,21281,female,156,95,140,90,well above normal,above normal,no,no,yes,1
+415,21952,male,170,78,150,80,well above normal,normal,no,no,yes,1
+416,21364,female,161,72,120,80,well above normal,normal,no,no,yes,1
+417,17300,female,158,70,170,90,well above normal,normal,no,no,no,1
+418,16658,female,157,72,150,30,normal,normal,no,no,yes,1
+419,20248,female,164,86,120,80,well above normal,well above normal,no,no,yes,1
+420,20314,female,160,73,160,90,well above normal,well above normal,no,no,yes,1
+421,22691,female,159,86,130,90,normal,normal,no,no,yes,0
+422,19789,female,162,93,130,80,normal,normal,no,no,yes,1
+423,21894,female,157,86,169,109,well above normal,normal,no,no,yes,1
+424,23203,female,165,64,140,90,above normal,normal,no,no,yes,1
+425,22577,male,182,91,120,80,normal,normal,yes,no,yes,0
+426,17505,female,158,80,150,80,normal,normal,no,no,yes,1
+427,21726,female,160,55,120,80,normal,normal,no,no,no,0
+428,16667,female,158,53,110,70,normal,normal,no,no,yes,0
+429,18187,female,156,74,160,90,normal,normal,no,no,yes,1
+430,20608,female,165,69,120,80,normal,normal,no,no,no,0
+431,17432,male,164,78,120,80,well above normal,well above normal,no,no,yes,0
+432,17425,female,165,47,110,80,normal,above normal,no,no,yes,0
+433,23324,female,160,62,140,90,normal,normal,no,no,yes,1
+434,18106,male,176,95,140,90,above normal,above normal,no,no,no,1
+435,16765,female,186,200,130,70,normal,normal,no,no,no,0
+436,19011,female,158,65,130,80,normal,normal,no,no,no,0
+437,20954,male,180,84,180,90,well above normal,well above normal,no,no,yes,1
+438,21865,female,156,82,120,70,normal,normal,no,no,yes,1
+439,20255,male,179,64.8,126,84,normal,well above normal,no,no,yes,0
+440,19046,female,163,58,120,80,normal,normal,no,no,yes,0
+441,22620,female,147,66,100,70,normal,normal,no,no,yes,0
+442,18978,male,175,86,120,80,normal,normal,yes,yes,no,0
+443,17423,female,162,84,110,90,normal,normal,no,no,yes,1
+444,16657,female,167,74,90,60,normal,normal,no,no,yes,0
+445,21856,male,177,80,160,90,above normal,normal,no,no,yes,1
+446,21237,male,178,120,160,90,normal,well above normal,no,no,yes,1
+447,19589,female,156,60,120,90,normal,normal,no,no,yes,0
+448,19011,female,160,73,140,90,above normal,normal,no,no,yes,1
+449,18230,female,171,74,130,80,normal,above normal,no,no,yes,0
+450,20057,female,162,70,120,80,normal,well above normal,no,no,yes,1
+451,14895,female,169,65,120,80,normal,normal,no,no,no,0
+452,21163,male,167,61,120,80,normal,normal,no,no,yes,1
+453,22630,male,180,100,130,90,well above normal,normal,no,no,yes,1
+454,19474,female,152,68,110,70,normal,normal,no,no,yes,1
+455,19863,female,152,50,130,80,normal,normal,no,no,yes,1
+456,21901,female,160,54,120,80,normal,normal,no,no,yes,1
+457,16115,male,159,74,120,70,normal,normal,no,no,no,0
+458,18273,male,176,98,120,80,normal,normal,no,no,yes,0
+459,19093,female,160,70,150,80,normal,normal,no,no,yes,1
+460,18353,male,157,63,160,90,normal,normal,no,no,yes,1
+461,19782,male,156,52,120,80,normal,normal,no,no,no,1
+462,21993,male,175,92,120,80,well above normal,normal,yes,yes,yes,1
+463,20286,female,156,64,160,90,normal,normal,no,no,yes,0
+464,15192,female,166,98,120,80,normal,normal,no,no,yes,0
+465,20631,female,162,85,120,70,well above normal,well above normal,no,no,yes,1
+466,20412,male,175,57,120,80,normal,normal,no,no,yes,0
+467,20302,female,172,78,120,80,normal,normal,no,no,yes,1
+468,18107,female,170,68,130,90,normal,normal,no,no,no,1
+469,21907,female,160,70,140,90,well above normal,well above normal,no,no,yes,1
+470,16864,male,165,75,120,80,normal,normal,yes,no,yes,0
+471,18032,female,164,54,110,90,normal,normal,no,no,yes,0
+472,14610,male,171,88,140,90,above normal,above normal,no,no,yes,1
+473,15226,female,150,95,150,1033,normal,normal,no,no,yes,1
+474,19099,female,156,65,120,150,above normal,normal,no,no,yes,0
+475,19649,female,165,68,120,80,normal,normal,no,no,yes,0
+476,18825,male,164,68,140,100,normal,normal,no,yes,yes,1
+477,19756,female,152,60,120,60,normal,normal,no,no,yes,0
+478,19136,female,165,92,120,80,above normal,normal,no,no,yes,1
+479,19115,female,170,101,120,80,normal,normal,no,no,yes,1
+480,21966,female,159,101,170,90,normal,normal,no,no,yes,1
+481,19589,female,158,86,160,50,above normal,well above normal,no,no,yes,1
+482,14681,female,174,84,120,80,normal,normal,no,no,no,0
+483,18983,female,164,73,120,80,normal,normal,no,no,no,0
+484,19066,female,160,75,120,80,normal,normal,no,no,yes,0
+485,16091,female,172,52,110,70,above normal,normal,no,no,yes,0
+486,21939,male,160,85,130,90,above normal,normal,yes,no,no,1
+487,15975,female,158,69,110,80,normal,well above normal,no,yes,yes,0
+488,16822,female,147,61,110,80,normal,normal,no,no,yes,0
+489,21681,male,167,73,180,80,well above normal,well above normal,no,no,no,1
+490,18056,female,170,90,120,80,normal,normal,no,no,yes,0
+491,18958,female,149,62,180,110,above normal,normal,no,no,yes,1
+492,19801,female,168,80,120,80,normal,normal,no,no,yes,0
+493,20571,female,159,68,120,80,normal,normal,no,no,yes,1
+494,22464,female,161,62,140,80,above normal,above normal,no,no,yes,0
+495,21791,female,150,88,120,80,normal,normal,no,no,yes,0
+496,17381,female,151,117,160,90,above normal,normal,no,no,no,1
+497,20449,female,151,53,120,80,normal,normal,no,no,yes,0
+498,21197,female,162,60,120,80,normal,normal,no,no,no,0
+499,21985,female,168,65,158,91,normal,normal,no,no,yes,1
+500,20463,female,166,69,120,80,normal,normal,no,no,yes,0
+501,22616,male,168,69,120,80,normal,normal,no,no,no,0
+502,18387,female,148,59,150,100,normal,normal,no,no,no,1
+503,14549,male,182,60,110,80,normal,normal,yes,no,no,0
+504,16987,male,170,74,120,80,well above normal,well above normal,no,no,yes,0
+505,20389,female,158,60,130,60,normal,normal,no,no,yes,1
+506,22505,male,162,73,120,70,normal,normal,no,no,yes,1
+507,16822,female,165,64,140,40,normal,normal,no,no,yes,1
+508,22737,female,166,76,120,80,normal,normal,no,no,yes,0
+509,19740,male,173,74,110,70,above normal,well above normal,no,no,yes,0
+510,21179,female,162,70,110,70,normal,normal,no,no,yes,0
+511,22061,female,169,62,120,80,normal,normal,no,no,yes,0
+512,21013,male,164,62,120,80,normal,normal,no,no,yes,0
+513,19632,female,167,90,140,100,well above normal,normal,no,no,yes,1
+514,16943,male,169,75,120,80,normal,normal,yes,no,yes,1
+515,21016,female,162,84,120,80,normal,normal,no,no,no,1
+516,21161,male,170,65,120,80,normal,normal,yes,no,yes,0
+517,15214,female,159,104,140,90,above normal,normal,no,no,yes,0
+518,19924,female,167,70,110,70,above normal,normal,no,no,no,0
+519,19005,male,176,90,140,100,normal,normal,no,no,yes,1
+520,21398,female,170,88,140,90,normal,normal,no,no,yes,0
+521,15991,female,156,60,120,80,normal,normal,no,no,yes,0
+522,19484,male,170,70,120,80,normal,normal,no,no,yes,0
+523,15922,female,158,76,150,100,well above normal,normal,no,no,yes,0
+524,22023,female,148,50,120,80,normal,above normal,no,no,yes,1
+525,14365,female,170,67,120,80,above normal,normal,no,no,yes,0
+526,21239,female,165,69,120,70,normal,normal,no,no,yes,0
+527,21025,female,162,78,150,90,above normal,normal,no,no,no,1
+528,21863,female,152,54,130,90,normal,normal,no,no,yes,1
+529,20647,male,171,78,110,70,well above normal,well above normal,no,no,no,0
+530,19436,male,165,68,120,80,normal,normal,no,no,yes,1
+531,19731,female,164,85,110,80,normal,normal,no,no,yes,1
+532,16729,female,169,73,120,80,normal,normal,no,no,no,1
+533,21090,female,147,64,110,80,normal,normal,no,no,yes,0
+534,18163,female,159,62,120,80,normal,normal,no,no,no,0
+535,20369,male,161,83,140,80,normal,well above normal,no,no,yes,0
+536,15337,female,160,52,120,70,normal,well above normal,no,no,yes,0
+537,19650,female,164,85,145,90,normal,normal,no,yes,yes,1
+538,18021,female,165,67,150,90,above normal,normal,no,no,yes,1
+539,15447,female,171,75,110,70,normal,normal,no,no,no,0
+540,19460,female,170,76,110,70,normal,normal,no,no,yes,0
+541,23307,female,164,80,130,80,normal,normal,no,no,no,0
+542,18980,male,178,85,120,80,normal,normal,no,no,no,1
+543,23334,female,147,110,140,90,well above normal,normal,no,no,no,1
+544,22781,female,167,100,140,80,well above normal,normal,no,no,yes,1
+545,21159,male,160,55,120,80,normal,normal,yes,yes,yes,0
+546,18015,male,171,98,120,80,normal,above normal,yes,no,yes,0
+547,19481,female,156,72,180,90,above normal,normal,no,no,yes,1
+548,23291,female,167,87,130,80,normal,normal,no,no,yes,0
+549,17580,female,168,79,140,70,above normal,normal,no,no,yes,1
+550,19908,female,147,60,110,80,normal,normal,no,no,yes,0
+551,19834,male,175,70,120,90,normal,normal,no,no,yes,0
+552,20705,female,159,55,120,80,normal,normal,no,no,yes,0
+553,14480,female,165,74,120,80,normal,normal,no,no,no,0
+554,23578,female,157,69,110,90,normal,above normal,no,no,yes,0
+555,18115,female,160,84,120,80,normal,above normal,no,no,yes,1
+556,15357,female,160,90,110,80,normal,normal,no,no,no,1
+557,18390,female,158,60,140,90,well above normal,normal,no,no,yes,1
+558,16758,female,166,62,110,70,normal,normal,no,no,yes,0
+559,20430,male,173,101,200,1000,normal,normal,no,no,yes,1
+560,16719,female,153,63,100,70,normal,normal,no,no,yes,0
+561,16216,female,160,82,110,70,normal,above normal,no,no,yes,0
+562,19586,male,164,59,120,80,normal,normal,no,no,no,0
+563,14824,female,165,80,120,90,normal,normal,no,yes,no,1
+564,22564,female,159,60,110,70,normal,normal,no,no,yes,0
+565,16488,male,175,95,120,90,normal,normal,yes,yes,yes,1
+566,18382,female,161,87,110,90,normal,normal,yes,no,yes,1
+567,21281,female,168,78,14,90,above normal,normal,no,no,yes,1
+568,16034,female,176,96,110,80,well above normal,well above normal,no,no,yes,0
+569,17420,male,175,88,140,90,above normal,normal,yes,yes,no,1
+570,21974,male,161,71,120,70,normal,well above normal,no,no,yes,1
+571,19734,female,160,76,140,90,normal,normal,no,no,no,1
+572,17487,female,168,72,120,80,normal,normal,no,no,no,0
+573,18131,female,154,55,110,70,normal,normal,no,no,no,0
+574,22574,male,174,74,150,70,normal,normal,no,no,no,1
+575,17528,male,165,60,120,80,normal,normal,no,no,yes,0
+576,16543,female,154,87,130,100,normal,normal,no,no,yes,1
+577,15291,female,161,73,120,80,normal,normal,no,no,yes,1
+578,17434,male,169,73,120,80,normal,well above normal,no,no,yes,1
+579,20606,male,178,95,150,90,above normal,above normal,no,no,yes,1
+580,19692,female,160,57,150,90,above normal,normal,no,no,yes,1
+581,18935,male,160,63,170,90,normal,normal,no,no,no,1
+582,21102,male,164,58,120,80,normal,normal,no,no,no,0
+583,21430,female,165,78,120,80,normal,normal,no,no,yes,1
+584,23281,female,170,95,140,80,normal,normal,no,no,no,1
+585,20280,female,160,91,110,80,normal,normal,no,no,no,1
+586,15378,female,164,79,150,90,normal,normal,no,no,yes,1
+587,17612,female,158,59,120,80,normal,normal,no,no,yes,0
+588,19010,male,173,77,110,70,normal,normal,no,no,yes,0
+589,19669,female,150,65,120,80,above normal,well above normal,no,no,yes,1
+590,16037,female,164,70,120,80,normal,normal,no,no,yes,0
+591,14705,female,164,125,130,90,normal,normal,no,no,no,0
+592,18441,male,157,60,120,80,normal,normal,no,no,yes,1
+593,19126,female,156,73,100,70,normal,normal,no,no,yes,0
+594,19734,female,168,69,110,70,normal,normal,no,no,yes,0
+595,20339,female,163,66,160,110,normal,normal,no,no,yes,1
+596,16654,female,151,70,110,70,normal,above normal,no,no,yes,1
+597,23493,male,165,79,140,90,well above normal,normal,no,no,yes,1
+598,14489,male,170,97,123,80,normal,normal,yes,no,yes,0
+599,23296,female,155,65,120,80,well above normal,normal,no,no,yes,1
+600,21154,male,168,91,130,90,above normal,above normal,no,no,yes,0
+601,18158,female,162,76,130,80,normal,normal,no,no,yes,0
+602,18911,female,160,67,120,80,normal,normal,no,no,no,0
+603,23455,female,157,64,110,70,normal,normal,no,no,yes,0
+604,19547,female,169,70,120,80,normal,normal,no,no,no,0
+605,17999,male,178,81,150,100,normal,normal,no,no,no,1
+606,21933,female,163,65,130,90,normal,normal,no,no,yes,1
+607,22552,male,160,74,140,100,normal,normal,no,no,yes,1
+608,20344,male,165,78,130,90,normal,normal,yes,no,yes,0
+609,23424,male,161,50,120,80,normal,normal,no,no,yes,0
+610,18314,female,167,67,100,60,above normal,normal,no,no,yes,0
+611,18486,female,161,80,110,70,above normal,normal,no,no,yes,1
+612,17503,male,167,70,120,80,normal,normal,no,no,yes,0
+613,18963,female,165,92,140,1000,normal,normal,yes,no,yes,1
+614,21122,female,163,106,140,90,above normal,normal,no,no,yes,1
+615,17388,female,166,60,120,80,normal,normal,no,no,yes,0
+616,22738,female,151,70,130,79,well above normal,well above normal,no,no,yes,0
+617,16018,male,166,58,125,80,normal,normal,yes,yes,yes,0
+618,19674,male,170,81,130,90,above normal,normal,yes,no,yes,0
+619,19042,female,165,62,125,80,normal,normal,no,no,yes,0
+620,21122,female,162,60,150,100,normal,normal,no,no,yes,1
+621,18946,female,153,99,110,70,normal,normal,no,no,yes,1
+622,20661,male,168,73,130,90,normal,normal,no,no,no,1
+623,16756,female,158,64,90,60,normal,normal,no,no,yes,0
+624,20411,female,161,75,120,80,normal,normal,no,no,yes,1
+625,19786,male,184,84,120,80,normal,normal,no,no,no,0
+626,14533,female,168,47,120,70,normal,normal,no,no,yes,0
+627,15283,male,178,103,120,80,normal,normal,no,no,yes,0
+628,16675,female,160,114,110,80,normal,normal,no,no,yes,0
+629,21287,male,174,95,130,90,well above normal,well above normal,no,no,yes,1
+630,16229,female,160,72,150,110,normal,normal,no,no,yes,1
+631,18761,female,158,89,140,90,normal,normal,no,no,yes,1
+632,21644,female,160,85,140,100,normal,normal,no,no,no,1
+633,21738,female,165,78,130,80,normal,normal,no,no,no,0
+634,16677,male,174,83,140,90,above normal,normal,no,no,yes,1
+635,21406,female,167,80,130,80,well above normal,well above normal,no,no,yes,0
+636,20457,male,169,68,70,110,normal,normal,no,no,yes,0
+637,18209,female,165,55,100,80,normal,normal,no,no,yes,0
+638,23370,female,165,70,150,90,normal,above normal,no,no,no,1
+639,23391,female,170,92,120,80,normal,above normal,no,no,yes,1
+640,18470,female,168,72,130,80,normal,normal,no,no,yes,1
+641,17370,male,173,95,140,100,normal,normal,yes,no,yes,1
+642,19593,female,152,62,120,80,normal,normal,no,no,yes,0
+643,23653,female,154,79,130,80,normal,normal,no,no,yes,0
+644,17329,female,170,70,120,80,normal,normal,no,no,yes,1
+645,20284,female,158,86,160,100,above normal,normal,no,no,yes,0
+646,22048,female,163,72,120,80,normal,normal,no,no,yes,1
+647,18314,male,178,80,140,90,well above normal,normal,no,no,yes,1
+648,21257,female,158,85,140,90,well above normal,well above normal,no,no,yes,1
+649,18190,female,166,57,190,1100,normal,normal,no,no,yes,1
+650,19646,female,160,78,140,70,normal,normal,no,no,no,1
+651,15440,male,169,65,120,80,normal,normal,no,no,no,0
+652,18288,male,172,77,130,80,above normal,normal,yes,no,no,1
+653,21842,female,156,72,180,1000,above normal,normal,no,no,no,1
+654,21068,female,165,67,140,90,normal,normal,no,no,no,1
+655,15423,female,165,63,120,80,normal,normal,no,no,yes,0
+656,20339,male,160,66,120,80,normal,normal,no,no,yes,0
+657,20311,female,154,69,110,70,above normal,normal,no,no,yes,0
+658,23463,male,170,72,120,80,normal,normal,no,no,yes,0
+659,18235,female,162,62,110,70,normal,normal,no,no,yes,0
+660,18117,female,162,71,120,80,normal,normal,no,no,yes,0
+661,15377,female,168,75,120,80,normal,normal,no,no,yes,0
+662,19203,female,160,48,130,80,above normal,normal,no,no,yes,0
+663,18779,female,162,56,120,80,normal,normal,no,no,yes,0
+664,20281,female,160,60,120,80,normal,normal,no,no,yes,0
+665,21094,male,167,90,130,85,above normal,above normal,yes,yes,yes,0
+666,16871,male,179,74,120,60,normal,normal,no,no,yes,0
+667,18119,female,156,93,140,90,normal,normal,no,no,yes,1
+668,20508,female,160,55,130,80,normal,normal,no,no,no,1
+669,23155,male,174,86,120,80,normal,normal,no,no,no,0
+670,21252,male,176,97,140,90,well above normal,normal,no,no,yes,0
+671,16231,female,150,70,145,110,normal,normal,no,no,yes,1
+672,15928,male,163,70,110,70,normal,normal,no,no,yes,0
+673,23259,male,170,69,120,80,well above normal,well above normal,no,no,yes,1
+674,19054,female,150,61,150,90,well above normal,well above normal,no,no,yes,1
+675,15970,female,162,88,100,80,normal,normal,no,no,yes,0
+676,18265,male,168,75,110,80,normal,normal,yes,yes,yes,0
+677,14598,male,176,82,120,80,normal,normal,no,no,yes,0
+678,14611,female,152,57,120,80,normal,normal,no,no,yes,0
+679,17511,male,172,70,110,70,normal,normal,yes,no,yes,0
+680,20310,female,169,75,130,90,normal,normal,no,no,yes,0
+681,14562,male,175,72,120,70,normal,normal,no,no,yes,0
+682,21921,female,157,78,150,100,well above normal,well above normal,no,no,yes,1
+683,23320,male,170,89,130,90,above normal,normal,no,no,yes,1
+684,15282,female,162,78,100,60,normal,normal,no,no,yes,0
+685,21221,female,158,94,140,90,above normal,normal,no,no,no,1
+686,23391,male,157,71,150,80,normal,above normal,no,no,yes,1
+687,17053,male,176,79,140,90,above normal,above normal,no,no,yes,1
+688,19676,female,161,91,120,80,normal,normal,no,no,no,1
+689,15878,female,160,95,130,80,normal,normal,no,no,no,0
+690,14650,male,168,68,140,90,normal,normal,no,no,yes,1
+691,23638,female,165,60,120,80,normal,normal,no,no,no,1
+692,18816,female,162,68,120,80,normal,normal,no,no,yes,0
+693,22542,female,160,55,150,80,normal,normal,no,no,yes,1
+694,21101,male,170,90,110,70,normal,normal,yes,yes,yes,0
+695,19687,female,150,55,110,70,normal,normal,no,no,yes,0
+696,21802,male,162,62,130,80,normal,normal,no,no,no,1
+697,22615,male,171,108,161,73,normal,normal,yes,no,yes,1
+698,23475,female,165,68,120,80,normal,normal,no,no,no,1
+699,22469,female,155,69,130,80,above normal,above normal,no,no,yes,0
+700,14648,female,163,71,110,70,normal,normal,no,no,yes,1
+701,21901,female,165,70,120,80,normal,normal,no,no,yes,0
+702,14549,male,165,85,120,80,normal,normal,yes,yes,yes,0
+703,23393,female,155,62,120,80,normal,normal,no,no,yes,0
+704,21143,female,164,61,100,70,normal,normal,no,no,yes,0
+705,18085,female,162,72,100,70,normal,normal,no,no,yes,0
+706,22547,female,161,93,140,90,above normal,normal,no,no,yes,1
+707,21250,female,157,68,110,80,normal,normal,no,no,yes,0
+708,22446,female,158,65,140,90,well above normal,normal,no,no,yes,1
+709,16621,female,153,57,120,80,well above normal,above normal,no,no,yes,1
+710,20442,male,169,82,130,90,normal,normal,no,no,yes,1
+711,23168,male,150,56,130,80,above normal,normal,no,no,yes,1
+712,22598,female,176,72,130,90,normal,well above normal,no,no,yes,1
+713,20317,female,154,85,160,100,well above normal,normal,no,no,yes,1
+714,23558,female,159,60,120,80,normal,normal,no,no,yes,1
+715,20219,male,146,45,120,80,normal,normal,no,no,yes,0
+716,19559,female,165,90,140,90,normal,normal,no,no,yes,1
+717,20006,male,167,65,120,80,normal,normal,no,no,no,0
+718,19054,female,154,70,110,70,normal,normal,no,no,yes,0
+719,23407,male,170,74,140,1000,normal,normal,no,no,yes,1
+720,22833,female,150,56,130,80,normal,normal,no,no,yes,1
+721,20465,female,162,88,160,90,above normal,normal,no,no,yes,1
+722,21737,male,167,74,110,70,normal,normal,no,no,no,0
+723,19881,male,167,95,110,70,normal,normal,no,no,yes,0
+724,23587,female,163,103,140,100,normal,normal,no,no,yes,1
+725,17569,female,162,80,120,80,normal,normal,no,no,yes,0
+726,23385,female,151,63,120,80,above normal,above normal,no,no,no,1
+727,16073,female,161,55,100,60,normal,normal,no,no,no,0
+728,14647,male,183,91,130,80,above normal,normal,no,no,yes,1
+729,14790,male,160,62,120,80,normal,normal,no,no,yes,0
+730,21126,female,164,77,110,80,normal,above normal,no,yes,yes,0
+731,21382,male,170,71,130,80,normal,normal,yes,no,yes,1
+732,21652,male,167,70,160,90,above normal,normal,yes,yes,yes,1
+733,15289,male,169,103,120,80,normal,normal,no,no,yes,0
+734,21163,female,155,83,120,80,above normal,normal,no,no,yes,1
+735,16931,male,178,91,120,80,normal,normal,no,no,yes,1
+736,16151,female,169,69,110,70,normal,normal,no,no,yes,0
+737,16808,female,160,77,140,90,above normal,above normal,yes,no,no,1
+738,18879,male,171,113,130,80,normal,normal,no,no,yes,0
+739,15180,female,151,71,120,79,normal,normal,no,no,yes,0
+740,18996,female,179,129,140,90,well above normal,well above normal,no,no,no,1
+741,21298,female,159,63,110,70,well above normal,well above normal,no,no,yes,1
+742,19624,female,170,60,120,80,normal,normal,no,no,yes,0
+743,19681,male,165,72,120,80,normal,normal,no,no,yes,1
+744,19086,female,165,65,120,80,normal,normal,no,no,yes,0
+745,21023,female,170,81,170,90,well above normal,well above normal,no,no,no,1
+746,18152,female,174,94,140,90,well above normal,above normal,no,no,yes,0
+747,17025,male,169,62,100,80,well above normal,normal,no,no,yes,0
+748,16012,male,162,76,120,80,normal,normal,no,no,no,0
+749,17460,male,180,96,130,80,normal,normal,no,no,yes,1
+750,19750,female,170,69,130,70,normal,normal,no,no,yes,0
+751,19662,male,183,114,120,80,normal,normal,no,no,no,0
+752,22801,female,164,79,130,80,well above normal,above normal,no,no,yes,1
+753,19930,male,167,78,120,80,normal,normal,no,no,no,0
+754,21128,male,168,73,160,80,normal,normal,no,no,yes,1
+755,15978,female,162,86,120,80,normal,normal,no,no,no,0
+756,22442,female,161,94,140,80,well above normal,above normal,no,no,yes,1
+757,20479,female,166,71,130,90,normal,normal,no,no,yes,1
+758,20927,male,163,96,130,60,normal,normal,no,no,no,0
+759,22093,female,149,58,130,90,well above normal,well above normal,no,no,yes,1
+760,15381,male,160,68,120,80,normal,normal,no,no,no,0
+761,14668,female,163,95,130,80,above normal,above normal,no,no,yes,0
+762,19203,female,160,71,160,100,well above normal,normal,no,no,yes,1
+763,19172,male,174,65,120,80,normal,normal,no,no,yes,0
+764,16542,male,170,96,140,80,above normal,normal,no,no,yes,1
+765,18992,male,169,71,140,90,normal,normal,no,no,yes,1
+766,23406,female,151,58,120,70,normal,normal,no,no,yes,1
+767,22723,female,155,58,130,90,normal,normal,no,no,yes,1
+768,14572,female,161,82,150,80,above normal,normal,no,no,yes,1
+769,19723,female,156,60,120,80,normal,normal,no,no,yes,0
+770,21103,female,166,70,140,80,normal,normal,no,no,no,0
+771,22760,male,156,64,110,70,normal,normal,no,no,yes,0
+772,16208,male,179,87,140,78,normal,normal,yes,yes,yes,1
+773,15873,female,147,55,120,90,normal,normal,no,no,yes,0
+774,21276,male,171,86,160,110,normal,above normal,no,no,yes,1
+775,19748,female,151,75,160,90,well above normal,normal,no,no,yes,1
+776,21336,female,174,65,120,80,normal,normal,no,no,yes,1
+777,21970,female,156,78,130,90,well above normal,normal,no,no,no,1
+778,16884,male,174,68,160,100,normal,normal,no,no,yes,0
+779,17519,male,170,70,170,100,normal,normal,no,no,yes,1
+780,14539,female,152,72,110,70,normal,above normal,no,no,yes,1
+781,23301,female,141,60,120,80,normal,normal,no,no,yes,1
+782,14473,female,173,73,160,100,normal,normal,no,no,no,1
+783,21292,female,160,90,147,84,above normal,normal,no,yes,yes,1
+784,18112,male,169,74,120,80,normal,normal,no,no,no,0
+785,16805,female,160,67,120,80,normal,normal,no,no,no,0
+786,18946,female,152,124,120,80,above normal,above normal,no,no,yes,1
+787,19885,female,150,63,110,70,normal,normal,no,no,yes,0
+788,17285,female,167,75,100,70,normal,normal,no,no,yes,0
+789,21890,female,165,80,120,70,normal,normal,no,no,yes,1
+790,20307,female,165,95,130,80,normal,normal,no,no,yes,0
+791,23253,female,158,88,130,80,normal,above normal,no,no,yes,1
+792,16003,female,159,77,120,80,normal,normal,no,no,yes,0
+793,22826,female,162,65,140,90,well above normal,well above normal,no,no,yes,0
+794,20488,female,176,120,150,90,normal,normal,no,no,no,0
+795,15174,male,177,75,150,110,normal,normal,no,no,yes,1
+796,23203,male,172,74,140,70,above normal,normal,yes,no,yes,0
+797,22711,male,171,68,120,80,normal,normal,no,no,no,0
+798,23222,male,173,90,120,80,normal,normal,no,no,yes,1
+799,21952,female,165,65,140,90,well above normal,well above normal,no,no,yes,1
+800,20415,female,165,75,140,80,above normal,normal,no,no,yes,1
+801,14525,male,176,87,120,80,normal,normal,no,no,yes,0
+802,15433,male,172,90,160,90,well above normal,normal,no,no,yes,1
+803,18470,female,167,74,120,80,normal,normal,no,no,yes,0
+804,17317,female,168,68,140,90,well above normal,well above normal,no,no,yes,1
+805,20477,female,160,78,120,80,normal,well above normal,no,no,yes,0
+806,18173,female,164,84,120,80,normal,normal,no,no,yes,0
+807,15925,female,168,84,130,90,normal,normal,no,no,yes,1
+808,15472,male,170,80,110,70,normal,normal,yes,no,no,0
+809,21154,male,169,81,120,80,normal,normal,no,no,yes,0
+810,15393,male,178,79,110,70,above normal,above normal,yes,no,yes,0
+811,20495,female,164,68,140,90,well above normal,well above normal,no,no,yes,1
+812,19811,female,163,63,120,80,well above normal,well above normal,no,no,yes,0
+813,20388,female,165,65,120,80,normal,normal,no,no,yes,1
+814,19700,male,160,58,120,80,normal,normal,yes,no,yes,0
+815,21854,male,175,86,115,75,well above normal,above normal,no,no,yes,1
+816,23194,female,152,64,140,90,normal,normal,no,no,yes,1
+817,19747,male,173,83,150,100,well above normal,well above normal,yes,no,yes,1
+818,18235,female,156,60,110,70,normal,normal,no,no,yes,0
+819,17449,female,170,64,130,80,normal,normal,no,no,yes,1
+820,21817,male,164,75,150,90,well above normal,normal,no,no,no,1
+821,23616,female,156,98,130,90,well above normal,well above normal,no,no,yes,1
+822,17405,female,155,79,110,70,above normal,normal,no,no,yes,1
+823,19835,female,166,73,110,70,above normal,normal,no,yes,yes,0
+824,19639,male,163,51,140,90,normal,normal,yes,no,yes,1
+825,15977,female,161,88,150,80,well above normal,normal,no,no,yes,1
+826,16068,male,174,61,120,80,normal,normal,no,no,no,0
+827,23117,female,147,64,160,100,well above normal,normal,no,no,yes,1
+828,18873,female,174,86,120,80,normal,normal,no,no,no,0
+829,15206,male,168,62,140,90,normal,normal,no,no,yes,1
+830,20345,male,167,84,110,75,normal,normal,no,no,yes,1
+831,15324,female,160,65,120,80,normal,normal,no,no,yes,0
+832,22552,female,160,67,130,80,normal,normal,no,no,no,1
+833,21847,male,167,75,140,90,normal,normal,no,no,yes,1
+834,14635,female,166,105,110,70,normal,normal,no,no,yes,0
+835,19454,female,170,68,120,80,normal,normal,no,no,yes,0
+836,17360,male,172,90,110,70,normal,normal,yes,no,yes,0
+837,14659,female,148,42,90,60,normal,normal,no,no,yes,0
+838,16307,male,171,115,150,90,normal,normal,no,no,yes,1
+839,20221,female,160,73,120,80,normal,normal,no,no,no,1
+840,21297,female,173,88,150,90,above normal,normal,no,no,yes,1
+841,20200,female,158,75,160,90,above normal,normal,no,no,no,1
+842,14890,male,165,60,120,80,normal,normal,no,no,no,0
+843,19783,female,159,65,150,90,normal,normal,no,no,yes,1
+844,19068,female,170,70,120,80,normal,normal,no,no,no,1
+845,18070,female,166,75,110,80,normal,normal,no,no,yes,0
+846,21232,female,167,75,110,70,normal,normal,no,no,yes,0
+847,15768,male,165,64,140,90,normal,normal,no,no,yes,0
+848,14373,female,169,67,120,80,normal,normal,no,no,yes,0
+849,18787,female,155,86,130,80,normal,normal,no,no,yes,0
+850,23154,female,165,95,150,80,well above normal,well above normal,no,no,yes,1
+851,15968,female,162,115,110,70,normal,well above normal,no,no,yes,1
+852,18187,female,158,69,120,80,normal,normal,no,no,yes,0
+853,21270,female,166,92,180,110,normal,normal,no,no,yes,1
+854,17545,female,156,116,110,70,above normal,normal,no,no,yes,0
+855,20370,female,168,80,120,80,normal,normal,no,no,no,1
+856,18131,female,160,83,110,80,normal,normal,no,no,no,0
+857,23473,male,164,74,120,80,normal,normal,yes,yes,no,1
+858,19671,female,162,75,120,80,normal,normal,no,no,yes,0
+859,23329,female,150,50,150,90,normal,normal,no,no,yes,1
+860,18227,female,167,70,120,80,normal,normal,no,no,no,0
+861,19797,female,165,68,120,80,normal,normal,no,no,yes,0
+862,16182,male,171,71,120,80,normal,normal,no,no,no,0
+863,15961,male,170,72,120,80,normal,normal,no,no,yes,0
+864,16882,female,166,100,110,70,normal,normal,no,no,yes,0
+865,18787,female,164,70,150,90,well above normal,normal,yes,no,yes,1
+866,18332,male,160,67,120,80,normal,normal,no,no,yes,0
+867,19640,female,161,63,140,90,normal,normal,no,no,yes,0
+868,20631,female,161,68,120,90,normal,normal,no,no,yes,0
+869,15219,male,172,58,140,90,normal,normal,no,no,yes,1
+870,22149,male,178,107,150,80,well above normal,normal,no,no,yes,1
+871,19556,male,170,85,130,90,well above normal,normal,no,no,yes,0
+872,17476,male,174,75,140,90,well above normal,normal,no,no,yes,1
+873,22900,male,170,78,120,70,well above normal,well above normal,no,no,yes,0
+874,19905,female,165,75,120,80,normal,well above normal,no,no,yes,0
+875,22038,female,156,60,130,80,well above normal,well above normal,no,no,yes,1
+876,15207,male,174,105,130,90,normal,normal,no,no,yes,0
+877,16788,female,162,80,160,80,normal,normal,yes,no,yes,1
+878,18297,female,165,83,120,90,normal,normal,no,no,yes,0
+879,18287,female,165,65,120,80,normal,normal,no,no,no,0
+880,23190,male,168,80,160,90,normal,normal,no,no,yes,0
+881,17405,male,170,84,150,1100,normal,normal,yes,no,no,1
+882,18296,female,170,59,120,80,normal,normal,no,no,yes,1
+883,15985,male,170,70,110,70,normal,normal,no,no,yes,0
+884,22415,female,169,68,120,80,normal,normal,no,no,yes,1
+885,22571,female,164,66,120,80,normal,normal,no,no,no,1
+886,22562,female,160,72,170,90,normal,above normal,no,no,no,0
+887,15297,male,170,65,120,80,normal,normal,yes,yes,yes,0
+888,18856,female,153,69,130,60,normal,normal,no,no,yes,1
+889,21211,female,156,55,100,70,normal,normal,no,no,no,0
+890,19532,female,160,79,130,90,above normal,normal,no,no,yes,0
+891,17493,male,169,73,120,70,normal,normal,no,no,yes,0
+892,23206,female,164,92,130,90,normal,normal,no,no,yes,1
+893,15209,male,160,78,110,80,normal,normal,no,no,yes,0
+894,23363,female,164,74,120,80,normal,normal,no,no,yes,0
+895,21068,male,152,49,130,80,normal,normal,no,no,yes,0
+896,19722,male,167,78,150,90,above normal,above normal,no,no,no,1
+897,18018,male,160,85,120,60,normal,normal,no,no,yes,0
+898,16709,female,156,62,120,80,normal,normal,no,no,yes,0
+899,20994,female,156,72,140,100,above normal,normal,no,no,yes,1
+900,19614,female,163,63,120,80,well above normal,well above normal,no,no,no,1
+901,19092,female,159,63,150,80,above normal,normal,no,no,yes,1
+902,14404,female,166,64,110,70,normal,normal,no,no,yes,0
+903,23606,female,162,62,120,80,normal,well above normal,no,no,yes,0
+904,21192,female,159,74,160,100,well above normal,normal,no,no,no,1
+905,20460,female,159,80,140,100,normal,normal,no,no,yes,1
+906,23350,female,159,60,130,80,well above normal,above normal,no,yes,yes,1
+907,20465,male,167,74,130,70,normal,normal,yes,no,yes,1
+908,14636,female,172,93,110,75,above normal,above normal,no,no,no,0
+909,19113,female,163,65,150,90,above normal,normal,no,no,yes,1
+910,18094,female,154,65,120,80,normal,normal,no,no,yes,0
+911,23496,male,160,86,120,80,normal,normal,no,no,yes,0
+912,21978,female,169,65,120,80,normal,normal,no,no,yes,0
+913,22722,male,160,57,150,80,normal,above normal,yes,yes,yes,0
+914,17599,female,164,80,140,90,above normal,normal,no,no,yes,1
+915,22649,male,160,67,120,80,normal,normal,no,no,yes,1
+916,19890,male,163,71,130,80,normal,normal,yes,yes,yes,0
+917,16775,female,179,75,120,80,normal,normal,no,no,no,1
+918,20211,female,167,68,100,60,normal,normal,no,no,yes,0
+919,18502,female,167,64,120,80,normal,normal,no,no,no,0
+920,20433,female,168,65,160,100,normal,normal,no,no,yes,1
+921,19619,female,153,75,140,80,normal,normal,no,no,yes,1
+922,20180,female,158,74,110,70,normal,normal,no,no,no,0
+923,19865,female,156,105,130,80,above normal,normal,no,no,yes,1
+924,18275,male,174,92,140,90,normal,above normal,no,no,no,1
+925,16761,male,171,69,120,80,above normal,normal,yes,no,yes,1
+926,19792,female,163,60,120,80,normal,normal,no,no,no,0
+927,21867,male,175,70,14,90,well above normal,normal,no,no,yes,1
+928,21114,female,163,62,110,90,normal,normal,no,no,yes,0
+929,22844,female,156,54,110,70,normal,normal,no,no,no,0
+930,19724,female,169,85,120,90,above normal,normal,no,no,no,1
+931,23180,female,161,72,120,80,above normal,normal,no,no,yes,1
+932,16759,female,159,56,110,70,normal,normal,no,no,yes,0
+933,15898,female,163,98,120,80,normal,normal,yes,no,yes,0
+934,18894,female,159,63,110,70,normal,normal,no,no,yes,0
+935,19698,male,167,72,120,80,normal,normal,no,no,no,0
+936,23406,male,175,90,160,80,well above normal,well above normal,no,no,yes,1
+937,21105,female,154,70,120,60,normal,normal,no,no,yes,0
+938,21282,male,170,63,100,60,normal,normal,no,no,yes,1
+939,19764,male,175,82,150,100,above normal,above normal,yes,yes,yes,1
+940,15970,female,167,69,110,70,normal,normal,no,no,yes,0
+941,22408,male,164,68,120,80,normal,normal,yes,no,yes,1
+942,23319,female,151,55,120,80,normal,normal,no,no,no,0
+943,15051,male,175,76,120,80,normal,normal,no,no,yes,0
+944,19843,male,167,87,120,85,normal,normal,yes,no,yes,0
+945,18202,male,178,91,125,80,normal,normal,no,no,yes,1
+946,21184,female,165,88,150,90,normal,normal,no,no,yes,1
+947,18177,female,155,83,140,90,normal,normal,no,no,yes,0
+948,16835,male,178,86,120,80,above normal,well above normal,no,no,yes,0
+949,19123,female,156,75,120,80,well above normal,well above normal,no,no,yes,1
+950,18287,female,160,59,120,80,normal,normal,no,no,yes,0
+951,15791,female,169,90,135,90,normal,normal,no,no,no,1
+952,18369,female,167,81,120,80,above normal,normal,no,yes,yes,0
+953,14445,female,167,67,120,80,normal,normal,no,no,yes,0
+954,19700,female,161,94,120,90,normal,normal,no,no,no,1
+955,21644,female,168,90,140,90,well above normal,above normal,no,no,yes,1
+956,19080,female,156,123,150,90,normal,normal,no,no,no,1
+957,18936,male,175,90,150,90,normal,normal,no,no,yes,1
+958,18002,male,175,89,120,80,normal,normal,no,no,yes,0
+959,16825,female,158,76,130,90,normal,normal,no,no,yes,1
+960,14568,male,174,68,120,80,normal,normal,yes,yes,yes,0
+961,14511,female,165,80,120,80,normal,normal,no,no,yes,0
+962,23376,female,162,84,120,80,above normal,normal,no,no,no,1
+963,18989,male,163,55,120,80,well above normal,normal,yes,no,yes,1
+964,17081,male,162,60,120,80,normal,normal,no,no,yes,0
+965,19756,female,155,83,190,90,above normal,above normal,no,no,yes,1
+966,23077,female,144,73,137,86,well above normal,normal,no,no,yes,0
+967,21770,female,163,57,150,90,normal,normal,no,no,yes,1
+968,23544,male,165,67,120,80,normal,normal,no,no,yes,0
+969,19845,female,162,67,120,80,normal,normal,no,no,yes,1
+970,20959,female,160,65,120,80,normal,above normal,no,yes,no,1
+971,19702,male,177,68,130,80,normal,normal,no,no,yes,0
+972,21969,male,178,92,153,87,well above normal,well above normal,no,no,yes,1
+973,21083,male,168,67,110,70,above normal,normal,no,no,yes,0
+974,19653,male,160,75,120,80,normal,normal,no,no,yes,0
+975,19186,male,165,67,120,80,well above normal,well above normal,no,no,no,0
+976,22518,male,164,72,130,90,above normal,normal,no,no,no,1
+977,16717,male,170,78,110,70,normal,well above normal,no,no,yes,0
+978,16195,female,160,100,120,80,normal,normal,yes,no,yes,0
+979,18225,female,172,65,11,80,normal,well above normal,no,no,yes,0
+980,20926,male,168,68,120,80,normal,normal,no,no,yes,1
+981,20380,female,166,67,120,80,normal,normal,no,no,yes,1
+982,18380,female,163,60,110,70,normal,well above normal,no,no,yes,0
+983,14784,female,166,52,90,60,normal,normal,no,no,no,0
+984,20474,female,156,76,150,90,normal,normal,no,no,no,1
+985,15377,male,174,85,140,90,normal,normal,no,no,yes,1
+986,19554,female,158,87,130,90,normal,normal,no,yes,yes,0
+987,21023,male,172,81,120,80,normal,normal,no,no,no,0
+988,16898,male,169,68,120,80,normal,normal,no,no,yes,1
+989,19914,female,158,68,150,90,normal,normal,no,no,yes,1
+990,20116,male,185,116,150,90,well above normal,normal,no,no,yes,1
+991,23445,male,179,66,120,80,normal,normal,no,no,yes,0
+992,21897,female,154,110,110,70,normal,normal,no,no,no,0
+993,15248,female,162,68,145,80,above normal,normal,no,no,no,1
+994,14672,female,160,62,110,60,normal,normal,no,no,yes,0
+995,19640,male,167,64,110,70,normal,normal,no,no,no,0
+996,18951,female,168,78,120,80,normal,normal,no,no,yes,1
+997,18751,female,149,56,140,80,normal,normal,no,no,yes,1
+998,17371,female,156,74,150,90,normal,normal,no,no,no,1
+999,20254,female,150,68,120,80,above normal,above normal,no,no,no,1

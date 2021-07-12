@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+
+    <div class="choose">
+        <h1 class="choose--header">Choose Side</h1>
+        <div class="choose--content">
+            <button class="choose--x">X</button>
+            <button class="choose--o">O</button>
+        </div>
+    </div>
+
+
+    <div class="main">
+      <div class="game">
+        <div id="blok0" class="blok"></div>
+        <div id="blok1" class="blok"></div>
+        <div id="blok2" class="blok"></div>
+        <div id="blok3" class="blok"></div>
+        <div id="blok4" class="blok"></div>
+        <div id="blok5" class="blok"></div>
+        <div id="blok6" class="blok"></div>
+        <div id="blok7" class="blok"></div>
+        <div id="blok8" class="blok"></div>
+      </div>
+      <div class="winner--container">
+          <p onclick="x_button()">x</p>
+        <h2 id="winner"></h2>
+        <div class="winner--button">
+            <button>Reset</button>
+        </div>
+      </div>
+      <button id="hidden--button">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

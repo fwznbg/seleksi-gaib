@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #010101;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+}
+
+.choose {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #010101;
+  width: 20rem;
+  height: 9.4rem;
+  border: 0.2rem solid #bebebe;
+  &--header {
+    text-align: center;
+    padding-top: 0.5rem;
+    height: 3.3rem;
+    width: inherit;
+  }
+  &--content {
+    display: flex;
+    width: inherit;
+    height: 6.1rem;
+  }
+  &--x,
+  &--o {
+    margin: 0;
+    padding: 0;
+    width: 9.8rem;
+    height: 5.9rem;
+    font-weight: 900;
+    font-size: 4rem;
+    text-align: center;
+    border-bottom: 0.2rem solid #bebebe;
+  }
+  &--x {
+    border-left: none;
+  }
+  &--o {
+    border-right: none;
+  }
+}
+
+.main {
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 420px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game {
+  height: 27rem;
+  width: 27rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+}
+
+.blok {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9rem;
+  height: 9rem;
+  font-size: 4rem;
+  font-weight: bold;
+  border: 0.2rem solid #fff;
+  transition: background 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background: #fff;
+  }
+}
+
+#blok {
+  &0,
+  &1,
+  &2 {
+    border-top: none;
+  }
+
+  &0,
+  &3,
+  &6 {
+    border-left: none;
+  }
+
+  &6,
+  &7,
+  &8 {
+    border-bottom: none;
+  }
+
+  &2,
+  &5,
+  &8 {
+    border-right: none;
+  }
+}
+
+button {
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  border: 0.1rem solid #bebebe;
+  background-color: #010101;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #010101;
+  }
+}
+
+.occupied {
+  &:hover {
+    background-color: #7d0633;
+  }
+}
+
+.winner {
+  &--container {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1rem auto 2rem 1.5rem;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #010101;
+    width: 35rem;
+    height: 12rem;
+    border: 0.1rem solid #bebebe;
+    font-size: 3rem;
+  }
+  &--button {
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: flex;
+    width: auto;
+    justify-self: center;
+  }
+}
+
+#hidden--button {
+  visibility: hidden;
+  margin-top: 2rem;
+}
+
+h2 {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: center;
+}
+
+p {
+  grid-column-start: 12;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 1.56rem;
+  text-align: center;
+  justify-self: end;
+  width: 1.5rem;
+  height: 1.5rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #010101;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .choose {
+    width: 14rem;
+    height: 7.9rem;
+    border: 0.1rem solid #bebebe;
+    &--header {
+      font-size: 1.3rem;
+      padding-top: 0.1rem;
+      height: 1.9rem;
+    }
+    &--content {
+      display: flex;
+      width: auto;
+      height: auto;
+    }
+    &--x,
+    &--o {
+      font-size: 2.3rem;
+      border-bottom: 0.1rem solid #bebebe;
+    }
+  }
+
+  .game {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .blok {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    border: 0.1rem solid #fff;
+  }
+
+  button {
+    width: 6rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .winner {
+    &--container {
+      grid-template-rows: 1rem auto 2rem 1rem;
+      width: 15rem;
+      height: 7rem;
+      font-size: 1.5rem;
+    }
+  }
+  #winner{
+      font-size: 1.5rem;
+  }
+}
