@@ -38,6 +38,7 @@ const createProgram = (gl, vertex, fragment)=> {
 
 // untuk melakukan rotasi
 let m4 = {
+  // membuat matriks identitas
   create: ()=> {
     return [
       1.0, 0.0, 0.0, 0.0, 
@@ -46,6 +47,7 @@ let m4 = {
       0.0, 0.0, 0.0, 1.0,
     ];
   },
+  // matriks rotasi pada sumbu-x dengan masukan dalam radian
   xRotation: (angleInRadians)=> {
     let c = Math.cos(angleInRadians);
     let s = Math.sin(angleInRadians);
@@ -57,7 +59,7 @@ let m4 = {
       0, 0, 0, 1
     ];
   },
-
+  // matriks rotasi pada sumbu-y dengan masukan dalam radian
   yRotation: (angleInRadians)=> {
     let c = Math.cos(angleInRadians);
     let s = Math.sin(angleInRadians);
@@ -69,7 +71,7 @@ let m4 = {
       0, 0, 0, 1
     ];
   },
-
+  // matriks rotasi pada sumbu-z dengan masukan dalam radian
   zRotation: (angleInRadians)=> {
     let c = Math.cos(angleInRadians);
     let s = Math.sin(angleInRadians);
@@ -80,8 +82,9 @@ let m4 = {
       0, 0, 1, 0, 
       0, 0, 0, 1
     ];
-  },
+  }, 
 
+  // mengembalikan matriks 4x4 hasil perkalian matriks a dan b
   multiply: (a, b)=> {
     let b00 = b[0];
     let b01 = b[1];
@@ -135,14 +138,15 @@ let m4 = {
       b30 * a03 + b31 * a13 + b32 * a23 + b33 * a33,
     ];
   },
+  // mengembalikan matriks hasil rotasi pada sumbu-x
   xRotate: (m, angleInRadians)=> {
     return m4.multiply(m, m4.xRotation(angleInRadians));
   },
-
+  // mengembalikan matriks hasil rotasi pada sumbu-y
   yRotate: (m, angleInRadians)=> {
     return m4.multiply(m, m4.yRotation(angleInRadians));
   },
-
+  // mengembalikan matriks hasil rotasi pada sumbu-z
   zRotate: (m, angleInRadians)=> {
     return m4.multiply(m, m4.zRotation(angleInRadians));
   },
