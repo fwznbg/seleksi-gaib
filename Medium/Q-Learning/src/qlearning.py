@@ -3,7 +3,7 @@ import random as rd
 import time
 
 class Banana:
-    def __init__(self, epsilon, learning_rate, discount_factor):
+    def __init__(self, learning_rate, discount_factor):
         self.env_rows = 1
         self.env_columns = 10
         self.starting_loc = 3
@@ -17,8 +17,7 @@ class Banana:
         rewards[-1] = 1
         self.rewards = rewards
         self.my_reward = 0
-        
-        self.epsilon = epsilon
+
         self.learning_rate = learning_rate
         self.discount_factor = discount_factor
         self.path = []
@@ -31,11 +30,9 @@ class Banana:
     
     # mengembalikan index action untuk langkah selanjutnya
     def get_next_action(self, current_idx):
-        if np.random.random() < self.epsilon:
-            # mengembalikan index action dengan performa terbaik
-            return np.argmax(self.q_values[0, current_idx])
-        else:
-            return np.random.randint(len(self.actions))
+        # mengembalikan index action dengan performa terbaik
+        return np.argmax(self.q_values[0, current_idx])
+
         
     # mengembalikan index untuk langkah selanjutnya
     def get_next_loc(self, current_idx, action_idx):
@@ -74,6 +71,8 @@ class Banana:
     
     # mencetak permainan ke layar berdasarkan path yang didapat
     def render(self, eps):      
+        print("Episode", eps, "\t", "Win:", self.win, "| Lose:", self.lose, end="\r")
+        time.sleep(0.7)
         for p in self.path:
             board = ['-' for i in range(10)]
             board[0] = 'H'
@@ -81,7 +80,7 @@ class Banana:
             board[p] = 'P'
             board = "".join(board)
 
-            print("Episode", eps, "\t", board, "\t", "Win:", self.win, "| Lose:", self.lose, end="\r")
+            print(board, "\t", "Win:", self.win, "| Lose:", self.lose, end="\r")
             time.sleep(0.1)
          
     # menghitung temporal difference
