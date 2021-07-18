@@ -11,18 +11,26 @@
     <div class="main">
         <div class="tools-container">
             <div>
-                <input type="checkbox" name="pen" id="pen" onchange="updateToggle()">
+                <input type="radio" name="draw-mode" id="pen" onchange="updateToggle()">
                 <label for="pen">Pen</label>
             </div>
             <div>
-                <input type="checkbox" name="line" id="line" onchange="updateToggle()">
+                <input type="radio" name="draw-mode" id="line" onchange="updateToggle()">
                 <label for="line">Line</label>
+            </div>
+            <div>
+                <input type="radio" name="draw-mode" id="square" onchange="updateToggle()">
+                <label for="square">Square</label>
+            </div>
+            <div>
+                <input type="radio" name="draw-mode" id="rectangle" onchange="updateToggle()">
+                <label for="rectangle">Rectangle</label>
             </div>
         </div>
         <canvas id="gl-canvas" width="600" height="600"></canvas>
     </div>
 
-    <script id="vertex-shader" type="notjs">
+    <script id="vertex-shader-pen-line" type="notjs">
         attribute vec4 a_position;
 
         void main() {
@@ -30,7 +38,23 @@
             gl_Position = a_position;
         }
     </script>
-    <script id="fragment-shader" type="notjs">
+    <script id="fragment-shader-pen-line" type="notjs">
+        precision mediump float;
+
+        void main(){
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        }
+    </script>
+
+    <script id="vertex-shader-square-rect" type="notjs">
+        attribute vec4 a_position;
+
+        void main() {
+            //gl_Points = 3.0;
+            gl_Position = a_position;
+        }
+    </script>
+    <script id="fragment-shader-square-rect" type="notjs">
         precision mediump float;
 
         void main(){
