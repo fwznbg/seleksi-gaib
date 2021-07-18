@@ -1,7 +1,7 @@
 let canvas = document.getElementById("gl-canvas");
 let gl;
-let programPenLine;
-let programSquareRect;
+let program;
+// let programSquareRect;
 
 // bernilai true bila sedang berada di mode terkait
 let line;
@@ -9,10 +9,12 @@ let pen;
 let square;
 let rect;
 
+let drawTrack = [];
+let lineStartPoints = [];
+
 let mouseClicked = false;
 let position = [];  // berisi titik koordinat di canvas
 let nPolygons = 0;  // jumlah objek polygon yang dibuat
-let mode =[];       // berisi mode draw untuk tiap poligon di-index ke-i
 let start = [];     // berisi posisi index awal dari poligon di index ke-i
 let numIdx = [];    // banyaknya titik pada poligon di index ke-i
 let idx = 0;        // jumlah total seluruh titik
@@ -80,27 +82,27 @@ function updateToggle(){
     line = document.getElementById("line").checked;
     square = document.getElementById("square").checked;
     rect = document.getElementById("rectangle").checked;
-    console.log("pen", pen);
-    console.log("line", line);
-    console.log("square", square);
-    console.log("rectangle", rect);
+    // console.log("pen", pen);
+    // console.log("line", line);
+    // console.log("square", square);
+    // console.log("rectangle", rect);
 }
 
-function init(){
-    initPenLine();
-    initSquareRect();
-}
+// function init(){
+//     initPenLine();
+//     initSquareRect();
+// }
 
-function initPenLine() {
+function init() {
     gl = canvas.getContext("webgl");
 
-    let vertexShaderSource = document.getElementById("vertex-shader-pen-line").text;
-    let fragmentShaderSource = document.getElementById("fragment-shader-pen-line").text;
+    let vertexShaderSource = document.getElementById("vertex-shader").text;
+    let fragmentShaderSource = document.getElementById("fragment-shader").text;
 
     let vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
     let fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
-    programPenLine = createProgram(gl, vertexShader, fragmentShader);
+    program = createProgram(gl, vertexShader, fragmentShader);
 
     gl.clearColor(0, 1, 1, 1)
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
@@ -112,22 +114,25 @@ function initPenLine() {
             nPolygons++;
             start[nPolygons] = idx;
             numIdx[nPolygons] = 0;
-            mode[nPolygons] = "pen";
         }else if(line){
             nPolygons++;
             start[nPolygons] = idx;
             numIdx[nPolygons] = 0;
-            mode[nPolygons] = "line";
         }else if(square){
             nPolygons++;
             start[nPolygons] = idx;
             numIdx[nPolygons] = 0;
-            mode[nPolygons] = "square";
+        }else if(rect){
+            nPolygons++;
+            start[nPolygons] = idx;
+            numIdx[nPolygons] = 0;
         }
     });
     canvas.addEventListener("mouseup", function(e){
         mouseClicked = false;
-    })
+        drawTrack = [];
+        lineStartPoints = [];
+    });
 
     canvas.addEventListener("mousemove", function(e){
         if(mouseClicked){
@@ -135,110 +140,94 @@ function initPenLine() {
             x =pos.x;
             y = pos.y;
             if(pen){
-                // menambahkan titik ke array position
-                position.push(x);
-                position.push(y);
+                if(drawTrack.length==2){
+                    let tracks = createLine([drawTrack[0], drawTrack[1]], [x, y]);
+                    // let tracks = createLine([0, 0], [x, y]);
+                    for(let track of tracks){
+                        position.push(track);
+                    }
+                    
+                    for(let i=0; i<4;i++){
+                        // jumlah titik untuk current poligon bertambah 1
+                        numIdx[nPolygons]++;
+                        // jumlah total seluruh titik bertambah 1
+                        idx++;
+                    }
+                    render();
 
-                // jumlah titik untuk current poligon bertambah 1
-                numIdx[nPolygons]++;
-                // jumlah total seluruh titik bertambah 1
-                idx++;
-                renderPenLine();
+                    drawTrack = [];
+                    // console.log(drawTrack[0], drawTrack[1], x, y);
+                    drawTrack.push(x);
+                    drawTrack.push(y);
+
+                }else{
+                    drawTrack.push(x);
+                    drawTrack.push(y);
+                }
             }else if(line){
                 // pada line jumlah titik hanya 2
-                if(numIdx[nPolygons]==2){   
+                // if(numIdx[nPolygons]==2){   
+                //     // titik terakhir dihapus dan digantikan titik terbaru
+                //     // agar saat cursor di-drag line yang terbentuk mengikuti gerakan cursor
+                //     position.pop(); 
+                //     position.pop();
+
+                //     position.push(x);
+                //     position.push(y);
+                // }else{
+                //     // menambahkan titik ke array position
+                //     position.push(x);   
+                //     position.push(y);
+
+                //     // jumlah titik untuk current poligon bertambah 1
+                //     numIdx[nPolygons]++;
+                //     // jumlah total seluruh titik bertambah 1
+                //     idx++;
+                // }
+                if(numIdx[nPolygons]==4){   
                     // titik terakhir dihapus dan digantikan titik terbaru
                     // agar saat cursor di-drag line yang terbentuk mengikuti gerakan cursor
-                    position.pop(); 
-                    position.pop();
+                    for(let i=0;i<4;i++){
+                        position.pop(); 
+                        position.pop();
+                    }
+                    for(let i=0;i<4;i++){
+                        // jumlah titik untuk current poligon bertambah 1
+                        numIdx[nPolygons]--;
+                        // jumlah total seluruh titik bertambah 1
+                        idx--;
+                    }
+                }else if(lineStartPoints.length==2){
+                    startX = lineStartPoints[0];
+                    startY = lineStartPoints[1];
 
-                    position.push(x);
-                    position.push(y);
-                }else{
+                    let tracks = createLine([startX,startY], [x,y]);
+                    for(let track of tracks){
+                        position.push(track);
+                        console.log(track)
+
+                    }
+
+                    for(let i=0;i<4;i++){
+                        // jumlah titik untuk current poligon bertambah 1
+                        numIdx[nPolygons]++;
+                        // jumlah total seluruh titik bertambah 1
+                        idx++;
+                    }
+                    render();
+                }else if(numIdx[nPolygons]==0){
                     // menambahkan titik ke array position
-                    position.push(x);   
-                    position.push(y);
+                    // position.push(x);   
+                    // position.push(y);
+                    lineStartPoints.push(x);   
+                    lineStartPoints.push(y);
 
                     // jumlah titik untuk current poligon bertambah 1
-                    numIdx[nPolygons]++;
+                    // numIdx[nPolygons]++;
                     // jumlah total seluruh titik bertambah 1
-                    idx++;
+                    // idx++;
                 }
-                renderPenLine();
-            }
-        }
-    })
-}
-
-function renderPenLine(){
-    gl.useProgram(programPenLine);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
-    resizeCanvas(canvas);
-    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-
-    let positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(position), gl.STATIC_DRAW);
-
-    let positionAttributeLocation = gl.getAttribLocation(programPenLine, "a_position");
-    gl.enableVertexAttribArray(positionAttributeLocation);
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
-
-
-    // proses draw dilakukan untuk tiap polygon yang telah dibuat
-    for(let i=0;i<=nPolygons;i++){
-        if(mode[nPolygons]=="pen" || mode[nPolygons]=="line"){
-            gl.drawArrays(gl.LINE_STRIP, start[i], numIdx[i]);
-        }
-
-    }
-}
-
-function initSquareRect() {
-    gl = canvas.getContext("webgl");
-
-    let vertexShaderSource = document.getElementById("vertex-shader-square-rect").text;
-    let fragmentShaderSource = document.getElementById("fragment-shader-square-rect").text;
-
-    let vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    let fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-
-    programSquareRect = createProgram(gl, vertexShader, fragmentShader);
-
-    gl.clearColor(0, 1, 1, 1)
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
-    
-    // renderSquareRect();
-
-    canvas.addEventListener("mousedown", function(e){ 
-        mouseClicked = true;
-       if(square){
-            nPolygons++;
-            start[nPolygons] = idx;
-            numIdx[nPolygons] = 0;
-            mode[nPolygons] = "square";
-        }else if(rect){
-            nPolygons++;
-            start[nPolygons] = idx;
-            numIdx[nPolygons] = 0;
-            mode[nPolygons] = "rect";
-        }
-    });
-    canvas.addEventListener("mouseup", function(e){
-        mouseClicked = false;
-    })
-
-    canvas.addEventListener("mousemove", function(e){
-        if(mouseClicked){
-            pos = mousePositiontoWebGLcoordiante(e, canvas);
-            x =pos.x;
-            y = pos.y;
-            console.log(
-                "x: ", x,
-                "y: ", y
-            )
-            if(square){
+            }else if(square){
                 if(numIdx[nPolygons]==0){
                     position.push(x);
                     position.push(y);
@@ -253,17 +242,12 @@ function initSquareRect() {
                             position.pop();
                         }
                     }
-                }else{
+                }else if(numIdx[nPolygons]==1 || numIdx[nPolygons]==2 || numIdx[nPolygons]==3){
                     x0 = position[position.length-2];
                     y0 = position[position.length-1];
 
-                    // x1 = Math.abs(x);
-                    // y1 = Math.abs(y);
                     abs = Math.abs;
-                    let max = Math.max(
-                        abs(x-x0), 
-                        abs(y-y0), 
-                        );
+                    let max = Math.max(abs(x-x0), abs(y-y0));
 
                     if(x0>x){
                         if(y0>y){
@@ -307,49 +291,12 @@ function initSquareRect() {
                         }
                     }
 
-                    // if(x>=0 && y>=0){
-                    //     position.push(x0);
-                    //     position.push(max);
-
-                    //     position.push(max);
-                    //     position.push(max);
-
-                    //     position.push(x0);
-                    //     position.push(max);
-                    // }else if(x>=0 && y<=0){
-                    //     position.push(x0);
-                    //     position.push(max*(-1));
-
-                    //     position.push(max);
-                    //     position.push(max*(-1));
-
-                    //     position.push(max);
-                    //     position.push(y0);
-                    // }else if(x<=0 && y>=0){
-                    //     position.push(x0);
-                    //     position.push(max);
-
-                    //     position.push(max*(-1));
-                    //     position.push(max);
-
-                    //     position.push(max*(-1));
-                    //     position.push(y0);
-                    // }else if(x<=0 && y<=0){
-                    //     position.push(x0);
-                    //     position.push(max*(-1));
-
-                    //     position.push(max*(-1));
-                    //     position.push(max*(-1));
-
-                    //     position.push(x0);
-                    //     position.push(max*(-1));
-                    // }
-
                     for(let i=0;i<3;i++){
                         numIdx[nPolygons]++;
                         idx++;
                     }
-                    renderSquareRect();
+
+                    render();
                 }
             }else if(rect){
                 if(numIdx[nPolygons]==0){
@@ -366,7 +313,7 @@ function initSquareRect() {
                             position.pop();
                         }
                     }
-                }else{
+                }else if(numIdx[nPolygons]==1 || numIdx[nPolygons]==2 || numIdx[nPolygons]==3){
                     x0 = position[position.length-2];
                     y0 = position[position.length-1];
 
@@ -383,44 +330,230 @@ function initSquareRect() {
                         numIdx[nPolygons]++;
                         idx++;
                     }
-                    renderSquareRect();
+                    render();
                 }
             }
-
-            
         }
-    })
+    });
 }
 
-// let data = [ -0.9533333333333334, 0.952000020345052, -0.9533333333333334, 0.4986666870117188, -0.45999999999999996, 0.4986666870117188, -0.45999999999999996, 0.952000020345052 ]
-
-function renderSquareRect(){
-    gl.useProgram(programSquareRect);
-
+function render(){
+    gl.useProgram(program);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
     resizeCanvas(canvas);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-    let positionBufferSquareRect = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBufferSquareRect);
+    let positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(position), gl.STATIC_DRAW);
-    // gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
 
-    let positionAttributeLocationSquareRect = gl.getAttribLocation(programSquareRect, "a_position");
-    gl.enableVertexAttribArray(positionAttributeLocationSquareRect);
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBufferSquareRect);
-    gl.vertexAttribPointer(positionAttributeLocationSquareRect, 2, gl.FLOAT, false, 0, 0);
+    let positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    gl.enableVertexAttribArray(positionAttributeLocation);
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
-    // gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
 
     // proses draw dilakukan untuk tiap polygon yang telah dibuat
     for(let i=0;i<=nPolygons;i++){
-        if(mode[nPolygons]=="square" || mode[nPolygons]=="rect"){
-            gl.drawArrays(gl.TRIANGLE_FAN, start[i], numIdx[i]);
-        }
+        // if(mode[nPolygons]=="pen" || mode[nPolygons]=="line"){
+        gl.drawArrays(gl.TRIANGLE_FAN, start[i], numIdx[i]);
+        // }
     }
 }
 
-function drawRectOnDrag(){
+// function initSquareRect() {
+//     gl = canvas.getContext("webgl");
 
+//     let vertexShaderSource = document.getElementById("vertex-shader-square-rect").text;
+//     let fragmentShaderSource = document.getElementById("fragment-shader-square-rect").text;
+
+//     let vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+//     let fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+//     programSquareRect = createProgram(gl, vertexShader, fragmentShader);
+
+//     gl.clearColor(0, 1, 1, 1)
+//     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
+    
+//     // renderSquareRect();
+
+//     canvas.addEventListener("mousedown", function(e){ 
+//         mouseClicked = true;
+//        if(square){
+//             nPolygons++;
+//             start[nPolygons] = idx;
+//             numIdx[nPolygons] = 0;
+//             mode[nPolygons] = "square";
+//         }else if(rect){
+//             nPolygons++;
+//             start[nPolygons] = idx;
+//             numIdx[nPolygons] = 0;
+//             mode[nPolygons] = "rect";
+//         }
+//     });
+//     canvas.addEventListener("mouseup", function(e){
+//         mouseClicked = false;
+//     })
+
+//     canvas.addEventListener("mousemove", function(e){
+//         if(mouseClicked){
+//             pos = mousePositiontoWebGLcoordiante(e, canvas);
+//             x =pos.x;
+//             y = pos.y;
+//             // console.log(
+//             //     "x: ", x,
+//             //     "y: ", y
+//             // )
+//             if(square){
+//                 if(numIdx[nPolygons]==0){
+//                     position.push(x);
+//                     position.push(y);
+
+//                     numIdx[nPolygons]++;
+//                     idx++;
+//                 }else if(numIdx[nPolygons]==4){
+//                     for(let i=0;i<3;i++){
+//                         numIdx[nPolygons]--;
+//                         idx--;
+//                         for(let j=0;j<2;j++){
+//                             position.pop();
+//                         }
+//                     }
+//                 }else{
+//                     x0 = position[position.length-2];
+//                     y0 = position[position.length-1];
+
+//                     // x1 = Math.abs(x);
+//                     // y1 = Math.abs(y);
+//                     abs = Math.abs;
+//                     let max = Math.max(
+//                         abs(x-x0), 
+//                         abs(y-y0), 
+//                         );
+
+//                     if(x0>x){
+//                         if(y0>y){
+//                             position.push(x0-max);
+//                             position.push(y0);
+
+//                             position.push(x0-max);
+//                             position.push(y0-max);
+
+//                             position.push(x0);
+//                             position.push(y0-max);
+//                         }else{
+//                             position.push(x0-max);
+//                             position.push(y0);
+
+//                             position.push(x0-max);
+//                             position.push(y0+max);
+
+//                             position.push(x0);
+//                             position.push(y0+max);
+//                         }
+//                     }else{
+//                         if(y0>y){
+//                             position.push(x0+max);
+//                             position.push(y0);
+
+//                             position.push(x0+max);
+//                             position.push(y0-max);
+
+//                             position.push(x0);
+//                             position.push(y0-max);
+//                         }else{
+//                             position.push(x0+max);
+//                             position.push(y0);
+
+//                             position.push(x0+max);
+//                             position.push(y0+max);
+
+//                             position.push(x0);
+//                             position.push(y0+max);
+//                         }
+//                     }
+//                     for(let i=0;i<3;i++){
+//                         numIdx[nPolygons]++;
+//                         idx++;
+//                     }
+
+//                     renderSquareRect();
+//                 }
+//             }else if(rect){
+//                 if(numIdx[nPolygons]==0){
+//                     position.push(x);
+//                     position.push(y);
+
+//                     numIdx[nPolygons]++;
+//                     idx++;
+//                 }else if(numIdx[nPolygons]==4){
+//                     for(let i=0;i<3;i++){
+//                         numIdx[nPolygons]--;
+//                         idx--;
+//                         for(let j=0;j<2;j++){
+//                             position.pop();
+//                         }
+//                     }
+//                 }else{
+//                     x0 = position[position.length-2];
+//                     y0 = position[position.length-1];
+
+//                     position.push(x0);
+//                     position.push(y);
+
+//                     position.push(x);
+//                     position.push(y);
+
+//                     position.push(x);
+//                     position.push(y0);
+
+//                     for(let i=0;i<3;i++){
+//                         numIdx[nPolygons]++;
+//                         idx++;
+//                     }
+//                     renderSquareRect();
+//                 }
+//             }
+//         }
+//     });
+// }
+
+// function renderSquareRect(){
+//     gl.useProgram(programSquareRect);
+
+//     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
+//     resizeCanvas(canvas);
+//     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+//     let positionBufferSquareRect = gl.createBuffer();
+//     gl.bindBuffer(gl.ARRAY_BUFFER, positionBufferSquareRect);
+//     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(position), gl.STATIC_DRAW);
+//     // gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
+
+//     let positionAttributeLocationSquareRect = gl.getAttribLocation(programSquareRect, "a_position");
+//     gl.enableVertexAttribArray(positionAttributeLocationSquareRect);
+//     gl.bindBuffer(gl.ARRAY_BUFFER, positionBufferSquareRect);
+//     gl.vertexAttribPointer(positionAttributeLocationSquareRect, 2, gl.FLOAT, false, 0, 0);
+
+//     // gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+
+//     // proses draw dilakukan untuk tiap polygon yang telah dibuat
+//     for(let i=0;i<=nPolygons;i++){
+//         if(mode[nPolygons]=="square" || mode[nPolygons]=="rect"){
+//             gl.drawArrays(gl.TRIANGLE_FAN, start[i], numIdx[i]);
+//         }
+//     }
+// }
+
+
+function createLine(begin, end){
+    // get initial and final pts on a line, return rectangle with width
+    var width = 0.003;
+    var beta = (Math.PI/2.0) - Math.atan2(end[1] - begin[1], end[0] - begin[0]);
+    var delta_x = Math.cos(beta)*width;
+    var delta_y = Math.sin(beta)*width;
+    return [begin[0] - delta_x, begin[1] + delta_y,
+            begin[0] + delta_x, begin[1] - delta_y,
+            end[0] + delta_x, end[1] - delta_y,
+            end[0] - delta_x, end[1] + delta_y];
 }

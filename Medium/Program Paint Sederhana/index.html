@@ -30,7 +30,7 @@
         <canvas id="gl-canvas" width="600" height="600"></canvas>
     </div>
 
-    <script id="vertex-shader-pen-line" type="notjs">
+    <script id="vertex-shader" type="notjs">
         attribute vec4 a_position;
 
         void main() {
@@ -38,7 +38,7 @@
             gl_Position = a_position;
         }
     </script>
-    <script id="fragment-shader-pen-line" type="notjs">
+    <script id="fragment-shader" type="notjs">
         precision mediump float;
 
         void main(){
@@ -46,7 +46,7 @@
         }
     </script>
 
-    <script id="vertex-shader-square-rect" type="notjs">
+    <!-- <script id="vertex-shader-square-rect" type="notjs">
         attribute vec4 a_position;
 
         void main() {
@@ -60,7 +60,7 @@
         void main(){
             gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
         }
-    </script>
+    </script> -->
     <script src="script.js"></script>
 </body>
 </html>
