@@ -94,13 +94,13 @@ function updateToggle(){
 }
 
 // return polygon containing of 2 triangle based on 2 points
-function createLine(begin, end){
+function createLine(start, end){
     var width = 0.003;
-    var beta = (Math.PI/2.0) - Math.atan2(end[1] - begin[1], end[0] - begin[0]);
+    var beta = (Math.PI/2.0) - Math.atan2(end[1] - start[1], end[0] - start[0]);
     var delta_x = Math.cos(beta)*width;
     var delta_y = Math.sin(beta)*width;
-    return [begin[0] - delta_x, begin[1] + delta_y,
-            begin[0] + delta_x, begin[1] - delta_y,
+    return [start[0] - delta_x, start[1] + delta_y,
+            start[0] + delta_x, start[1] - delta_y,
             end[0] + delta_x, end[1] - delta_y,
             end[0] - delta_x, end[1] + delta_y];
 }
@@ -173,6 +173,120 @@ function init() {
         //     color.push(r, g, b);
         // }
     });
+
+    // draggable allow user to drag the object drawn while moving the cursor
+    function createDraggableLine(start, end){
+        let tracks = createLine(start, end);    // create a new line based on start point and current point
+
+        for(let track of tracks){
+            position.push(track);
+        }
+
+        for(let i=0;i<4;i++){
+            color.push(r, g, b);
+        }
+
+        for(let i=0;i<4;i++){
+            numIdx[nPolygons]++;
+            idx++;
+        }
+        render();
+    }
+
+    function createDraggableSquare(start, end){
+        x0 = start[0];
+        y0 = start[1];
+
+        x = end[0];
+        y = end[1];
+        // get the furthest point from start point
+        abs = Math.abs;
+        let max = Math.max(abs(x-x0), abs(y-y0));
+
+        // create a square based on start point with side = max (furthest point from start point)
+        if(x0>x){
+            if(y0>y){
+                position.push(x0-max);
+                position.push(y0);
+
+                position.push(x0-max);
+                position.push(y0-max);
+
+                position.push(x0);
+                position.push(y0-max);
+            }else{
+                position.push(x0-max);
+                position.push(y0);
+
+                position.push(x0-max);
+                position.push(y0+max);
+
+                position.push(x0);
+                position.push(y0+max);
+            }
+        }else{
+            if(y0>y){
+                position.push(x0+max);
+                position.push(y0);
+
+                position.push(x0+max);
+                position.push(y0-max);
+
+                position.push(x0);
+                position.push(y0-max);
+            }else{
+                position.push(x0+max);
+                position.push(y0);
+
+                position.push(x0+max);
+                position.push(y0+max);
+
+                position.push(x0);
+                position.push(y0+max);
+            }
+        }
+
+        for(let i=0;i<3;i++){
+            numIdx[nPolygons]++;
+            idx++;
+        }
+
+        for(let i=0;i<3;i++){
+            color.push(r, g, b);
+        }
+
+        render();
+    }
+
+    function createDraggableRect(start, end){
+        x0 = start[0];
+        y0 = start[1];
+
+        x = end[0];
+        y = end[1];
+
+        // create a rectangle based on start point and current point
+        position.push(x0);
+        position.push(y);
+
+        position.push(x);
+        position.push(y);
+
+        position.push(x);
+        position.push(y0);
+
+        for(let i=0;i<3;i++){
+            numIdx[nPolygons]++;
+            idx++;
+        }
+
+        for(let i=0;i<3;i++){
+            color.push(r, g, b);
+        }
+
+        render();
+    }
+
     canvas.addEventListener("mouseup", function(e){
         mouseClicked = false;
         drawTrack = [];
@@ -211,7 +325,7 @@ function init() {
                     }
                     render();
 
-                    // pdating start point with current point as new start point
+                    // updating start point with current point as new start point
                     drawTrack = [];
                     drawTrack.push(x);
                     drawTrack.push(y);
@@ -221,9 +335,6 @@ function init() {
                     start[nPolygons] = idx;
                     numIdx[nPolygons] = 0;
 
-                    // for(let i=0;i<4;i++){
-                    //     color.push(r, g, b);
-                    // }
                 }else{  // start point hasn't been obtained 
                     drawTrack.push(x);
                     drawTrack.push(y);
@@ -244,25 +355,11 @@ function init() {
                         numIdx[nPolygons]--;
                         idx--;
                     }
+
+                    createDraggableLine([lineStartPoints[0], lineStartPoints[1]], [x, y]);
+
                 }else if(lineStartPoints.length==2){    // start point is created
-                    startX = lineStartPoints[0];
-                    startY = lineStartPoints[1];
-
-                    let tracks = createLine([startX,startY], [x,y]);    // create a new line based on start point and current point
-
-                    for(let track of tracks){
-                        position.push(track);
-                    }
-
-                    for(let i=0;i<4;i++){
-                        color.push(r, g, b);
-                    }
-
-                    for(let i=0;i<4;i++){
-                        numIdx[nPolygons]++;
-                        idx++;
-                    }
-                    render();
+                    createDraggableLine([lineStartPoints[0], lineStartPoints[1]], [x, y]);
                 }else if(numIdx[nPolygons]==0){ // initialization, get start point
                     lineStartPoints.push(x);   
                     lineStartPoints.push(y);
@@ -290,68 +387,10 @@ function init() {
                             position.pop();
                         }
                     }
+
+                    createDraggableSquare([position[position.length-2], position[position.length-1]], [x, y]);
                 }else if(numIdx[nPolygons]==1 || numIdx[nPolygons]==2 || numIdx[nPolygons]==3){ // square hasn't been created
-                    // get the start point
-                    x0 = position[position.length-2];
-                    y0 = position[position.length-1];
-
-                    // get the furthest point from start point
-                    abs = Math.abs;
-                    let max = Math.max(abs(x-x0), abs(y-y0));
-
-                    // create a square based on start point with side = max (furthest point from start point)
-                    if(x0>x){
-                        if(y0>y){
-                            position.push(x0-max);
-                            position.push(y0);
-
-                            position.push(x0-max);
-                            position.push(y0-max);
-
-                            position.push(x0);
-                            position.push(y0-max);
-                        }else{
-                            position.push(x0-max);
-                            position.push(y0);
-
-                            position.push(x0-max);
-                            position.push(y0+max);
-
-                            position.push(x0);
-                            position.push(y0+max);
-                        }
-                    }else{
-                        if(y0>y){
-                            position.push(x0+max);
-                            position.push(y0);
-
-                            position.push(x0+max);
-                            position.push(y0-max);
-
-                            position.push(x0);
-                            position.push(y0-max);
-                        }else{
-                            position.push(x0+max);
-                            position.push(y0);
-
-                            position.push(x0+max);
-                            position.push(y0+max);
-
-                            position.push(x0);
-                            position.push(y0+max);
-                        }
-                    }
-
-                    for(let i=0;i<3;i++){
-                        numIdx[nPolygons]++;
-                        idx++;
-                    }
-
-                    for(let i=0;i<3;i++){
-                        color.push(r, g, b);
-                    }
-
-                    render();
+                    createDraggableSquare([position[position.length-2], position[position.length-1]], [x, y]);
                 }
             }else if(rect){
                 if(numIdx[nPolygons]==0){   // initialization, get start point
@@ -377,31 +416,12 @@ function init() {
                             position.pop();
                         }
                     }
+
+                    createDraggableRect([position[position.length-2], position[position.length-1]], [x, y]);
+
                 }else if(numIdx[nPolygons]==1 || numIdx[nPolygons]==2 || numIdx[nPolygons]==3){ // rectangle han't been created
-                    // get the start point
-                    x0 = position[position.length-2];
-                    y0 = position[position.length-1];
+                    createDraggableRect([position[position.length-2], position[position.length-1]], [x, y]);
 
-                    // create a rectangle based on start point and current point
-                    position.push(x0);
-                    position.push(y);
-
-                    position.push(x);
-                    position.push(y);
-
-                    position.push(x);
-                    position.push(y0);
-
-                    for(let i=0;i<3;i++){
-                        numIdx[nPolygons]++;
-                        idx++;
-                    }
-
-                    for(let i=0;i<3;i++){
-                        color.push(r, g, b);
-                    }
-
-                    render();
                 }
             }
         }
