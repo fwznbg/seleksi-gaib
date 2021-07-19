@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gl-canvas {
+    border: 0.1em solid black;
+    height: 80vh;
+    // width: 0.8vh;
+}
+
+.tools-container{
+    padding-right: 2em;
+}
+
+.color-pick {
+    margin-top: 1em;
+}

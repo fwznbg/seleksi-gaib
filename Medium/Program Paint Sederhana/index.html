@@ -5,26 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Simple Paint App Build on WebGL">
+    <link rel="stylesheet" href="style/style.css">
     <title>Pain(t)</title>
 </head>
 <body>
     <div class="main">
         <div class="tools-container">
-            <div>
-                <input type="radio" name="draw-mode" id="pen" onchange="updateToggle()">
-                <label for="pen">Pen</label>
+            <div class="drawing">
+                <div>
+                    <input type="radio" name="draw-mode" id="pen" onchange="updateToggle()">
+                    <label for="pen">Pen</label>
+                </div>
+                <div>
+                    <input type="radio" name="draw-mode" id="line" onchange="updateToggle()">
+                    <label for="line">Line</label>
+                </div>
+                <div>
+                    <input type="radio" name="draw-mode" id="square" onchange="updateToggle()">
+                    <label for="square">Square</label>
+                </div>
+                <div>
+                    <input type="radio" name="draw-mode" id="rectangle" onchange="updateToggle()">
+                    <label for="rectangle">Rectangle</label>
+                </div>
             </div>
-            <div>
-                <input type="radio" name="draw-mode" id="line" onchange="updateToggle()">
-                <label for="line">Line</label>
-            </div>
-            <div>
-                <input type="radio" name="draw-mode" id="square" onchange="updateToggle()">
-                <label for="square">Square</label>
-            </div>
-            <div>
-                <input type="radio" name="draw-mode" id="rectangle" onchange="updateToggle()">
-                <label for="rectangle">Rectangle</label>
+
+            <div class="color-pick">
+                <label for="color-picker">Color</label><br>
+                <input type="color" id="color-picker"/>
             </div>
         </div>
         <canvas id="gl-canvas" width="600" height="600"></canvas>
@@ -32,17 +40,22 @@
 
     <script id="vertex-shader" type="notjs">
         attribute vec4 a_position;
+        attribute vec4 a_color;
+
+        varying vec4 v_color;
 
         void main() {
-            //gl_Points = 3.0;
+            v_color = a_color;
             gl_Position = a_position;
         }
     </script>
     <script id="fragment-shader" type="notjs">
         precision mediump float;
 
+        varying vec4 v_color;
+
         void main(){
-            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+            gl_FragColor = v_color;
         }
     </script>
 

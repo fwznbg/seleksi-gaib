@@ -12,11 +12,15 @@ let drawTrack = []; // array of new start point for every point on pen drawn
 let lineStartPoints = [];   // array of start point of a line
 
 let mouseClicked = false;
+
 let position = [];  // array of position index
+let color = [];
+
 let nPolygons = 0;  // array of number of polygons created
 let start = [];     // array of start index on buffer for polygon on index i
 let numIdx = [];    // array of number of points for polygon on index i
 let idx = 0;        // total point created
+
 
 
 window.onload = init;
@@ -96,6 +100,22 @@ function createLine(begin, end){
             end[0] - delta_x, end[1] + delta_y];
 }
 
+// return hex value of color
+function colorPicker(){
+    picker = document.getElementById("color-picker");
+    return picker.value
+}
+
+// converting hex to rgb
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+}
+
 function init() {
     gl = canvas.getContext("webgl");
 
@@ -107,11 +127,21 @@ function init() {
 
     program = createProgram(gl, vertexShader, fragmentShader);
 
-    gl.clearColor(0, 1, 1, 1)
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
+    gl.clearColor(0, 0, 0, 0)
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    gl.useProgram(program);
+
+    resizeCanvas(canvas);
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
     canvas.addEventListener("mousedown", function(e){ 
         mouseClicked = true;
+
+        let rgb = hexToRgb(colorPicker());
+        let r = rgb.r;
+        let g = rgb.g;
+        let b = rgb.b;
 
         // create new polygon with start index is the last total polygon created
         if(pen){
@@ -131,6 +161,9 @@ function init() {
             start[nPolygons] = idx;
             numIdx[nPolygons] = 0;
         }
+        for(let i=0;i<4;i++){
+            color.push(r, g, b);
+        }
     });
     canvas.addEventListener("mouseup", function(e){
         mouseClicked = false;
@@ -140,14 +173,18 @@ function init() {
 
     canvas.addEventListener("mousemove", function(e){
         if(mouseClicked){
-            pos = mousePositiontoWebGLcoordiante(e, canvas);
-            x =pos.x;
-            y = pos.y;
+            let pos = mousePositiontoWebGLcoordiante(e, canvas);
+            let x =pos.x;
+            let y = pos.y;
 
             if(pen){
                 /*
                 every point drawn on pen is a tiny polygon, not a dot
                 */
+                let rgb = hexToRgb(colorPicker());
+                let r = rgb.r;
+                let g = rgb.g;
+                let b = rgb.b;
 
                 if(drawTrack.length==2){    // start point has been obtained
                     // create a line based on start point and current point
@@ -175,6 +212,10 @@ function init() {
                     nPolygons++;
                     start[nPolygons] = idx;
                     numIdx[nPolygons] = 0;
+
+                    for(let i=0;i<4;i++){
+                        color.push(r, g, b);
+                    }
                 }else{  // start point hasn't been obtained 
                     drawTrack.push(x);
                     drawTrack.push(y);
@@ -198,7 +239,6 @@ function init() {
 
                     for(let track of tracks){
                         position.push(track);
-
                     }
 
                     for(let i=0;i<4;i++){
@@ -328,8 +368,10 @@ function init() {
 }
 
 function render(){
+    let colorNormalized = color.map(c => ((c-255)/255)+1);
+
     gl.useProgram(program);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
+    // gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFER_BIT);
     resizeCanvas(canvas);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
@@ -337,10 +379,20 @@ function render(){
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(position), gl.STATIC_DRAW);
 
+    let colorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colorNormalized), gl.STATIC_DRAW);
+
     let positionAttributeLocation = gl.getAttribLocation(program, "a_position");
     gl.enableVertexAttribArray(positionAttributeLocation);
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+    let colorAttributeLocation = gl.getAttribLocation(program, "a_color");
+    gl.enableVertexAttribArray(colorAttributeLocation);
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    // gl.vertexAttribPointer(colorAttributeLocation, 4, gl.FLOAT, true, 0, 0);
+    gl.vertexAttribPointer(colorAttributeLocation, 3, gl.FLOAT, false, 0, 0);
 
     for(let i=0;i<=nPolygons;i++){
         gl.drawArrays(gl.TRIANGLE_FAN, start[i], numIdx[i]);
