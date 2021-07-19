@@ -129,6 +129,20 @@ function hexToRgb(hex) {
     } : null;
 }
 
+function clearCanvas(){
+    drawTrack = []; 
+    lineStartPoints = [];
+
+    position = [];
+    color = [];
+
+    nPolygons = 0;  
+    start = [];     
+    numIdx = [];   
+    idx = 0; 
+    render();
+}
+
 function init() {
     gl = canvas.getContext("webgl");
 
