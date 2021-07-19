@@ -16,6 +16,11 @@ let mouseClicked = false;
 let position = [];  // array of position index
 let color = [];
 
+let rgb = hexToRgb(colorPicker());
+let r = rgb.r;
+let g = rgb.g;
+let b = rgb.b;
+
 let nPolygons = 0;  // array of number of polygons created
 let start = [];     // array of start index on buffer for polygon on index i
 let numIdx = [];    // array of number of points for polygon on index i
@@ -106,6 +111,14 @@ function colorPicker(){
     return picker.value
 }
 
+function colorChanged(){
+    rgb = hexToRgb(colorPicker());
+    
+    r = rgb.r;
+    g = rgb.g;
+    b = rgb.b;
+}
+
 // converting hex to rgb
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -138,11 +151,6 @@ function init() {
     canvas.addEventListener("mousedown", function(e){ 
         mouseClicked = true;
 
-        let rgb = hexToRgb(colorPicker());
-        let r = rgb.r;
-        let g = rgb.g;
-        let b = rgb.b;
-
         // create new polygon with start index is the last total polygon created
         if(pen){
             nPolygons++;
@@ -161,9 +169,9 @@ function init() {
             start[nPolygons] = idx;
             numIdx[nPolygons] = 0;
         }
-        for(let i=0;i<4;i++){
-            color.push(r, g, b);
-        }
+        // for(let i=0;i<4;i++){
+        //     color.push(r, g, b);
+        // }
     });
     canvas.addEventListener("mouseup", function(e){
         mouseClicked = false;
@@ -181,10 +189,6 @@ function init() {
                 /*
                 every point drawn on pen is a tiny polygon, not a dot
                 */
-                let rgb = hexToRgb(colorPicker());
-                let r = rgb.r;
-                let g = rgb.g;
-                let b = rgb.b;
 
                 if(drawTrack.length==2){    // start point has been obtained
                     // create a line based on start point and current point
@@ -193,6 +197,10 @@ function init() {
                     // pushing line created to position array 
                     for(let track of tracks){
                         position.push(track);
+                    }
+
+                    for(let i=0;i<4;i++){
+                        color.push(r, g, b);
                     }
                     
                     for(let i=0; i<4;i++){
@@ -213,9 +221,9 @@ function init() {
                     start[nPolygons] = idx;
                     numIdx[nPolygons] = 0;
 
-                    for(let i=0;i<4;i++){
-                        color.push(r, g, b);
-                    }
+                    // for(let i=0;i<4;i++){
+                    //     color.push(r, g, b);
+                    // }
                 }else{  // start point hasn't been obtained 
                     drawTrack.push(x);
                     drawTrack.push(y);
@@ -226,6 +234,11 @@ function init() {
                     for(let i=0;i<4;i++){
                         position.pop(); 
                         position.pop();
+                        
+                        for(let i=0; i<3; i++){
+                            color.pop();
+                        }
+
                     }
                     for(let i=0;i<4;i++){
                         numIdx[nPolygons]--;
@@ -242,6 +255,10 @@ function init() {
                     }
 
                     for(let i=0;i<4;i++){
+                        color.push(r, g, b);
+                    }
+
+                    for(let i=0;i<4;i++){
                         numIdx[nPolygons]++;
                         idx++;
                     }
@@ -255,6 +272,8 @@ function init() {
                     position.push(x);
                     position.push(y);
 
+                    color.push(r, g, b);
+
                     numIdx[nPolygons]++;
                     idx++;
                 }else if(numIdx[nPolygons]==4){ // a square has been created
@@ -262,6 +281,11 @@ function init() {
                     for(let i=0;i<3;i++){
                         numIdx[nPolygons]--;
                         idx--;
+
+                        for(let i=0; i<3; i++){
+                            color.pop();
+                        }
+
                         for(let j=0;j<2;j++){
                             position.pop();
                         }
@@ -323,12 +347,18 @@ function init() {
                         idx++;
                     }
 
+                    for(let i=0;i<3;i++){
+                        color.push(r, g, b);
+                    }
+
                     render();
                 }
             }else if(rect){
                 if(numIdx[nPolygons]==0){   // initialization, get start point
                     position.push(x);
                     position.push(y);
+
+                    color.push(r, g, b);
 
                     numIdx[nPolygons]++;
                     idx++;
@@ -337,6 +367,12 @@ function init() {
                     for(let i=0;i<3;i++){
                         numIdx[nPolygons]--;
                         idx--;
+
+                        for(let i=0; i<3; i++){
+                            color.pop();
+                        }
+
+
                         for(let j=0;j<2;j++){
                             position.pop();
                         }
@@ -360,6 +396,11 @@ function init() {
                         numIdx[nPolygons]++;
                         idx++;
                     }
+
+                    for(let i=0;i<3;i++){
+                        color.push(r, g, b);
+                    }
+
                     render();
                 }
             }
