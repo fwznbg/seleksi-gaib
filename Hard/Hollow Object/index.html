@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hollow Object</title>
+</head>
+<body>
+    <main>
+        <canvas id="gl-canvas" width=600 height="600"></canvas>
+        <div class="interactive-button">
+            <div class="translation">
+                <p>Tranlsate</p>
+                <div class="slider">
+                    <label for="x-translation">x</label>
+                    <input type="range" min=-1 max=1 step=0.001 value=0 name="x-translation" id="x-translation">
+                    <output>0</output>
+                </div>
+                <div class="slider">
+                    <label for="y-translation">y</label>
+                    <input type="range" min=-1 max=1 step=0.001 value=0 name="y-translation" id="y-translation">
+                    <output>0</output>
+                </div>
+                <div class="slider">
+                    <label for="z-translation">z</label>
+                    <input type="range" min=-1 max=1 step=0.001 value=0 name="z-translation" id="z-translation">
+                    <output>0</output>
+                </div>
+            </div>
+            <div class="rotation">
+                <p>Rotate</p>
+                <div class="slider">
+                    <label for="x-rotation">x-axis</label>
+                    <input type="range" min=0 max=360 value=0 name="x-rotation" id="x-rotation">
+                    <output>0</output>
+                </div>
+                <div class="slider">
+                    <label for="y-rotation">y-axis</label>
+                    <input type="range" min=0 max=360 value=0 name="y-rotation" id="y-rotation">
+                    <output>0</output>
+                </div>
+                <div class="slider">
+                    <label for="z-rotation">z-axis</label>
+                    <input type="range" min=0 max=360 value=0 name="z-rotation" id="z-rotation">
+                    <output>0</output>
+                </div>
+            </div>
+            <div class="scaling">
+                <p>Scale</p>
+                <div class="slider">
+                    <label for="x-scale">scale-x</label>
+                    <input type="range" min=0 max=5 step=0.01 value=1 name="x-scale" id="x-scale">
+                    <output>1</output>
+                </div>
+                <div class="slider">
+                    <label for="y-scale">scale-y</label>
+                    <input type="range" min=0 max=5 step=0.01 value=1 name="y-scale" id="y-scale">
+                    <output>1</output>
+                </div>
+                <div class="slider">
+                    <label for="z-scale">scale-z</label>
+                    <input type="range" min=0 max=5 step=0.01 value=1 name="z-scale" id="z-scale">
+                    <output>1</output>
+                </div>
+            </div>
+            <div class="color-picker">
+                <label for="color">Color</label><br>
+                <input type="color" name="color" id="color" onchange="updateColor()">
+            </div>
+        </div>
+    </main>
+
+    <script id="vertex" type="notjs">
+        attribute  vec4 a_position;
+        attribute  vec4 a_color;
+
+        uniform mat4 u_matrix;
+
+        varying vec4 v_color;
+
+        void main()
+        {
+            v_color = a_color;
+            gl_Position = u_matrix * a_position;
+        }
+    </script>
+    <script id="fragment" type="notjs">
+        precision mediump float;
+
+        varying vec4 v_color;
+
+        void main()
+        {
+            gl_FragColor = v_color;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

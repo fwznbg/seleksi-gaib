@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.interactive-button{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 60vh;
+    width: 20%;
+    padding-left: 2em;
+}
+
+canvas {
+    border: 1px solid black;
+}
