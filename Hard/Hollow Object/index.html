@@ -33,13 +33,13 @@
                 <p>Rotate</p>
                 <div class="slider">
                     <label for="x-rotation">x-axis</label>
-                    <input type="range" min=0 max=360 value=0 name="x-rotation" id="x-rotation">
-                    <output>0</output>
+                    <input type="range" min=0 max=360 value=70 name="x-rotation" id="x-rotation">
+                    <output>70</output>
                 </div>
                 <div class="slider">
                     <label for="y-rotation">y-axis</label>
-                    <input type="range" min=0 max=360 value=0 name="y-rotation" id="y-rotation">
-                    <output>0</output>
+                    <input type="range" min=0 max=360 value=10 name="y-rotation" id="y-rotation">
+                    <output>10</output>
                 </div>
                 <div class="slider">
                     <label for="z-rotation">z-axis</label>
@@ -67,33 +67,42 @@
             </div>
             <div class="color-picker">
                 <label for="color">Color</label><br>
-                <input type="color" name="color" id="color" onchange="updateColor()">
+                <input type="color" name="color" id="color"value="#80ffff" onchange="updateColor()">
             </div>
         </div>
     </main>
 
     <script id="vertex" type="notjs">
         attribute  vec4 a_position;
-        attribute  vec4 a_color;
+        attribute  vec3 a_normal;
 
         uniform mat4 u_matrix;
 
-        varying vec4 v_color;
+        varying vec3 v_normal;
 
         void main()
         {
-            v_color = a_color;
             gl_Position = u_matrix * a_position;
+            v_normal =  a_normal;
         }
     </script>
     <script id="fragment" type="notjs">
         precision mediump float;
 
-        varying vec4 v_color;
+        varying vec3 v_normal;
+        
+        uniform vec3 u_reverseLightDirection;
+        uniform vec4 u_color;
 
         void main()
         {
-            gl_FragColor = v_color;
+            vec3 normal = normalize(v_normal);
+
+            float light = dot(normal, u_reverseLightDirection);
+
+            gl_FragColor = u_color;
+
+            gl_FragColor.rgb *= light;
         }
     </script>
     <script src="script.js"></script>

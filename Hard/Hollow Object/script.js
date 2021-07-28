@@ -1,7 +1,9 @@
 let canvas = document.getElementById("gl-canvas");
 let gl;
 let matrixLocation;
-let colorAttLoc;
+let normalAttLoc;
+
+let program;
 
 let x_translation = document.getElementById("x-translation");
 let y_translation = document.getElementById("y-translation");
@@ -73,6 +75,7 @@ z_scaling.oninput = function(){
     render();
 }
 
+// array of vertices
 let positions = [
     /* TOP */
     // top
@@ -447,7 +450,7 @@ let positions = [
     0.5, -0.4, -0.5, 
 
     // LEFT FRONT PILLAR
-    // right
+    // left
     -0.5, -0.4, 0.5,
     -0.5, -0.4, 0.4,
     -0.5, 0.4, 0.5,
@@ -456,7 +459,7 @@ let positions = [
     -0.5, 0.4, 0.5,
     -0.5, -0.4, 0.4,
 
-    // left
+    // right
     -0.4, 0.4, 0.4, 
     -0.4, -0.4, 0.4, 
     -0.4, -0.4, 0.5, 
@@ -484,7 +487,7 @@ let positions = [
     -0.5, 0.4, 0.4,
 
     // LEFT BACK PILLAR
-    // right
+    // left
     -0.5, 0.4, -0.4,
     -0.5, -0.4, -0.4,
     -0.5, -0.4, -0.5,
@@ -493,7 +496,7 @@ let positions = [
     -0.5, 0.4, -0.4,
     -0.5, -0.4, -0.5,
 
-    // left
+    // right
     -0.4, 0.4, -0.5, 
     -0.4, -0.4, -0.5, 
     -0.4, -0.4, -0.4, 
@@ -521,8 +524,404 @@ let positions = [
     -0.5, 0.4, -0.5,
 ];
 
+// array of normals for evvery vertices
 let normals = new Float32Array([
+    /* TOP */
+    // top
+    // left
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // right
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // back
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // front
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // bottom
+    // left
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // right
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // back
+     0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // front
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // inside
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // outside
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
     
+    /* BOTTOM */
+    // bottom
+    // left
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // right
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // back
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // front
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // top
+    // left
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // right
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // back
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+    // front
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+    0, 1, 0,
+
+
+    // inside
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // outside
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // RIGHT FRONT PILLAR
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // RIGHT BACK PILLAR
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+
+    /// front
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // back
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+    0, 0, 1,
+
+    // LEFT FRONT PILLAR
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0, 
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0, 
+
+     /// front
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+ 
+     // back
+    0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+
+    // LEFT BACK PILLAR
+    // left
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0, 
+
+    // right
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0,
+    1, 0, 0, 
+
+     /// front
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+ 
+     // back
+    0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
+     0, 0, 1,
 ]);
 
 let colors = [];
@@ -531,6 +930,7 @@ function colorPicker(){
     return document.getElementById("color").value;
 }
 
+// convert hex values to rgb
 function hexToRgb(hex){
     let g = parseInt(hex.slice(3, 5), 16);
     let r = parseInt(hex.slice(1, 3), 16);
@@ -543,406 +943,24 @@ function hexToRgb(hex){
     return {r, g, b};
 }
 
+// convert rgb (0-255) to (0-1)
 function normalizeRGB(c){
     return ((c-255)/255)+1;
 }
 
 function initColor(){
-    // for(let i=0; i<positions.length/3;i++){
-    //     const  rgb = hexToRgb(colorPicker());
-    //     colors.push(rgb.r, rgb.g, rgb.b);
-    // }
-
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(1);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(1);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(0.8);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(0);
-            colors.push(0.8);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.8);
-            colors.push(0.8);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0.6);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0);
-            colors.push(0.6);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.6);
-            colors.push(0.6);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.4);
-            colors.push(0.4);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.4);
-            colors.push(0);
-            colors.push(0.4);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.4);
-            colors.push(0.4);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.2);
-            colors.push(0.2);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.2);
-            colors.push(0);
-            colors.push(0.2);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.2);
-            colors.push(0.2);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0.8);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0);
-            colors.push(0.8);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(1);
-            colors.push(0.8);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(1);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(0);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.8);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0.6);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0);
-            colors.push(0.6);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(1);
-            colors.push(0.6);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(1);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.6);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0.4);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0);
-            colors.push(0.4);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(1);
-            colors.push(0.4);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.4);
-            colors.push(1);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.4);
-            colors.push(0);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.4);
-            colors.push(1);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0.2);
-            colors.push(0);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(1);
-            colors.push(0);
-            colors.push(0.2);
-        }
-    }
-    
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(1);
-            colors.push(0.2);
-        }
-    }
-
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.2);
-            colors.push(1);
-            colors.push(0);
-        }
-    }
-
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.2);
-            colors.push(0);
-            colors.push(1);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.2);
-            colors.push(1);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(0.6);
-            colors.push(0);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.8);
-            colors.push(0);
-            colors.push(0.6);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.8);
-            colors.push(0.6);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0.8);
-            colors.push(0);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0);
-            colors.push(0.8);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.6);
-            colors.push(0.8);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0.4);
-            colors.push(0);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0.6);
-            colors.push(0);
-            colors.push(0.4);
-        }
-    }
-    for(let i=0;i<3;i++){
-        for(let j=0;j<2;j++){
-            colors.push(0);
-            colors.push(0.6);
-            colors.push(0.4);
-        }
-    }
-    
+    const  rgb = hexToRgb(colorPicker());
+    colors.push(rgb.r, rgb.g, rgb.b, 1);    
 }
 
 function updateColor(){
     colors = [];
-    for(let i=0; i<positions.length/3;i++){
-        const  rgb = hexToRgb(colorPicker());
-        colors.push(rgb.r, rgb.g, rgb.b);
-    }
+
+    const  rgb = hexToRgb(colorPicker());
+    colors.push(rgb.r, rgb.g, rgb.b, 1);
 
     render();
 }
-
-
-
-
-
 
 function init(){
     gl = canvas.getContext("webgl");
@@ -956,21 +974,20 @@ function init(){
     let vertexShader =  createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
     let fragmentShader =  createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
-    let program = createProgram(gl, vertexShader, fragmentShader);
+    program = createProgram(gl, vertexShader, fragmentShader);
+    gl.useProgram(program);
 
     let posBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
     
     let posAttLoc = gl.getAttribLocation(program, "a_position");
-    colorAttLoc = gl.getAttribLocation(program, "a_color");
+    normalAttLoc = gl.getAttribLocation(program, "a_normal");
     matrixLocation = gl.getUniformLocation(program, "u_matrix");
     
     gl.enableVertexAttribArray(posAttLoc);
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
     gl.vertexAttribPointer(posAttLoc, 3, gl.FLOAT, false, 0, 0);
-    
-    gl.useProgram(program);
     
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.CULL_FACE);
@@ -984,13 +1001,21 @@ function init(){
 }
 
 function render(){
-    let colorBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+    let normalBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, normals, gl.STATIC_DRAW);
 
-    gl.enableVertexAttribArray(colorAttLoc);
-    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-    gl.vertexAttribPointer(colorAttLoc, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(normalAttLoc);
+    gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
+    gl.vertexAttribPointer(normalAttLoc, 3, gl.FLOAT, false, 0, 0);
+
+    let colorUniformLoc = gl.getUniformLocation(program, "u_color");
+    let reverseLightDirectionLocation = gl.getUniformLocation(program, "u_reverseLightDirection");
+   
+    gl.uniform4fv(colorUniformLoc, colors);
+
+    let lightDirection = [0.8, 0.9, 1];
+    gl.uniform3fv(reverseLightDirectionLocation, normalize(lightDirection));
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -1015,7 +1040,14 @@ function createShader(gl, type, source){
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
   
+    // return shader;
+    var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+  if (success) {
     return shader;
+  }
+ 
+  console.log(gl.getShaderInfoLog(shader));
+  gl.deleteShader(shader);
   }
   
   // return a shader program
@@ -1025,7 +1057,14 @@ function createProgram(gl, vertex, fragment){
     gl.attachShader(program, fragment);
     gl.linkProgram(program);
 
+    // return program;
+    var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+  if (success) {
     return program;
+  }
+ 
+  console.log(gl.getProgramInfoLog(program));
+  gl.deleteProgram(program);
 }
 
 // canvas resizing
@@ -1038,6 +1077,7 @@ function resizeCanvas(canvas) {
     }
 }
 
+// return a "matrix" identity
 function createM4Identity(){
     return [
         1, 0, 0, 0,
@@ -1047,6 +1087,7 @@ function createM4Identity(){
     ]
 }
 
+// multiply 4x4 matrix
 function multiplyM4(a, b){
     let a00 = a[0];
     let a01 = a[1];
@@ -1101,6 +1142,7 @@ function multiplyM4(a, b){
       ];
 }
 
+// return translated 4x4 matrix 
 function translateM4(matrix, x, y, z){
     const translation = [
         1, 0, 0, 0,
@@ -1112,9 +1154,7 @@ function translateM4(matrix, x, y, z){
     return multiplyM4(matrix, translation);
 }
 
-function degreeToRadian(deg){
-    return deg * (Math.PI/80) 
-}
+// return rotated 4x4 matrix on x-axis 
 function rotateM4x(matrix, angle){
     let angleInRad = degreeToRadian(angle);
 
@@ -1131,6 +1171,7 @@ function rotateM4x(matrix, angle){
     return multiplyM4(matrix, xRotation);
 }
 
+// return rotated 4x4 matrix on y-axis 
 function rotateM4y(matrix, angle){
     let angleInRad = degreeToRadian(angle);
 
@@ -1147,6 +1188,7 @@ function rotateM4y(matrix, angle){
     return multiplyM4(matrix, yRotation);
 }
 
+// return rotated 4x4 matrix on z-axis 
 function rotateM4z(matrix, angle){
     let angleInRad = degreeToRadian(angle);
 
@@ -1163,6 +1205,7 @@ function rotateM4z(matrix, angle){
     return multiplyM4(matrix, zRotation);
 }
 
+// return scaled 4x4 matrix 
 function scaleM4(matrix, x, y, z){
     const scaling = [
         x, 0, 0, 0,
@@ -1172,4 +1215,21 @@ function scaleM4(matrix, x, y, z){
     ]
     
     return multiplyM4(matrix, scaling);
+}
+
+// normalize a vector
+function normalize(vector){
+    let length = Math.sqrt(Math.pow(vector[0], 2), Math.pow(vector[1], 2), Math.pow(vector[2], 2));
+    let result = [0, 0, 0];
+    if(length > 0.00001){
+        result[0] = vector[0]/length;
+        result[1] = vector[1]/length;
+        result[2] = vector[2]/length;
+    }
+    return result;
+}
+
+// convert degree to radian
+function degreeToRadian(deg){
+    return deg * (Math.PI/80) 
 }
