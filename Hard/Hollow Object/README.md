@@ -1,0 +1,1 @@
+to start the app simply open index.html or click [this](https://hollow-object.vercel.app/)
