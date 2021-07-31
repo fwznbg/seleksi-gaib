@@ -9,7 +9,7 @@
 | Custom 2048 AI                      |           | Medium |
 | Program Paint Sederhana             |     ✔️     | Medium |
 | Q-Learning                          |     ✔️     | Medium |
-| Hollow Object                       |           | Hard   |
+| Hollow Object                       |     ✔️     | Hard   |
 | Implementasi ANN Sederhana          |           | Hard   |
 
 ### Author
