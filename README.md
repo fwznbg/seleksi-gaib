@@ -1,11 +1,3 @@
-## Ga Lolos Seleksi Gaes 🙏
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
 | Objective                           | Completed | Lv     |
 |-------------------------------------|:---------:|--------|
 | Bentuk 3D                           |     ✔️     | Easy   |
